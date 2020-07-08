@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>438516930813-ssg8dte52kvfl6h6jubgtcgmtgjcv24o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.438516930813-ssg8dte52kvfl6h6jubgtcgmtgjcv24o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCfweUvGz7DUsDMf49YK8hYOXzH6cIcQsg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>438516930813</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.funasia.bigfantv</string>
+	<key>PROJECT_ID</key>
+	<string>bigfantv-13cd6</string>
+	<key>STORAGE_BUCKET</key>
+	<string>bigfantv-13cd6.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:438516930813:ios:9f0cd4fc8e8f7c5e8cc694</string>
+	<key>DATABASE_URL</key>
+	<string>https://bigfantv-13cd6.firebaseio.com</string>
+</dict>
+</plist>
