@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import MaterialComponents.MaterialDialogs
- 
+import MaterialComponents.MDCActivityIndicator
  class Utility:NSObject
  {
      
@@ -29,7 +29,7 @@ import MaterialComponents.MaterialDialogs
      
      class func Internetconnection(vc:UIViewController)
      {
-     let alertController = MDCAlertController(title: "Oops!", message: "No internet connection available")
+           let alertController = MDCAlertController(title: "Oops!", message: "No internet connection available")
            let action = MDCAlertAction(title:"OK")
            { (action) in  print("ok")
                 
@@ -38,6 +38,29 @@ import MaterialComponents.MaterialDialogs
             vc.present(alertController, animated: true, completion: nil)
           
      }
+    
+    class func ShowLoader()
+    {
+        let activityIndicator = MDCActivityIndicator()
+        activityIndicator.tag = 601601
+        activityIndicator.sizeToFit()
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
+        activityIndicator.cycleColors = [.black,.red,.green,.brown,.magenta,.orange]
+        activityIndicator.indicatorMode = .indeterminate
+        activityIndicator.radius = 20
+        activityIndicator.strokeWidth = 2
+        activityIndicator.startAnimating()
+        //view.addSubview(activityIndicator)
+       UIApplication.shared.keyWindow?.addSubview(activityIndicator)
+       UIApplication.shared.keyWindow?.bringSubviewToFront(activityIndicator)
+        
+    }
+    class  func hideLoader()   {
+          for item in UIApplication.shared.keyWindow!.subviews
+          where item.tag == 601601 {
+              item.removeFromSuperview()
+          }
+      }
 }
 
 

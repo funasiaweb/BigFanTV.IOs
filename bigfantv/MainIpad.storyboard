@@ -227,7 +227,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email already exists" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yQf-i1-AEU">
-                                                <rect key="frame" x="289" y="388.5" width="124" height="16.5"/>
+                                                <rect key="frame" x="289" y="388.5" width="115" height="15.5"/>
                                                 <fontDescription key="fontDescription" name="Muli-Regular_Bold" family="Muli" pointSize="13"/>
                                                 <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1820,7 +1820,7 @@
         <!--Tab BarVC-->
         <scene sceneID="1p7-XD-qNM">
             <objects>
-                <tabBarController modalPresentationStyle="fullScreen" id="vf5-BN-O4N" customClass="TabBarVC" customModule="bigfantv" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarVC" modalPresentationStyle="fullScreen" id="vf5-BN-O4N" customClass="TabBarVC" customModule="bigfantv" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="atO-eB-be7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -4500,7 +4500,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="534" height="48"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.18039215689999999" green="0.20000000000000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4539,7 +4539,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="534" height="48"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
-                                                        <textInputTraits key="textInputTraits"/>
+                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.18039215689999999" green="0.20000000000000001" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4586,6 +4586,9 @@
                                                         <real key="value" value="1"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="BtLoginTapped:" destination="vjf-jK-9QI" eventType="touchUpInside" id="dI7-WZ-g48"/>
+                                                </connections>
                                             </button>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SnI-Ji-ZGG">
                                                 <rect key="frame" x="304" y="60" width="504" height="142"/>
@@ -4671,6 +4674,7 @@
                         <outlet property="ScrollV" destination="9M0-DT-U4u" id="5dt-9r-EXO"/>
                         <outlet property="TfEmail" destination="9nN-fC-pRg" id="qqD-nE-70u"/>
                         <outlet property="TfPassword" destination="0Ha-oz-lTy" id="mzl-A6-8Ts"/>
+                        <segue destination="vf5-BN-O4N" kind="presentation" identifier="tabbarcontroll" id="Eex-lW-KCz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TDy-eK-x3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

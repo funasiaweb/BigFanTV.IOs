@@ -17,6 +17,7 @@ class ApiEndPoints
 {
  static let Register = "registeruser"
  static let CheckEmailExistance = "CheckEmailExistance"
+ static let login = "login"
     
 }
 class Keycenter

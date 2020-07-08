@@ -7,7 +7,9 @@
 //
 
 import UIKit
-
+import Alamofire
+import SwiftyJSON
+import MaterialComponents.MDCButton
 class LoginVC: UIViewController {
 
     var activeField: UITextField?
@@ -52,6 +54,88 @@ class LoginVC: UIViewController {
                TfEmail.attributedPlaceholder = NSAttributedString(string: "Enter your Email",
                attributes: [NSAttributedString.Key.foregroundColor:Appcolor.textcolor])
     }
+    
+    func Tolog()
+    {
+        if TfEmail.text?.isEmpty ?? false
+        {
+            view.makeToast("Please enter youe Email.")
+        }
+        else if TfEmail.text?.isEmpty ?? false
+        {
+            view.makeToast("Please enter youe Password.")
+        }else
+        {
+            guard isValidEmail(testStr: TfEmail.text ?? "") else {
+                view.makeToast("Please enter proper Email.")
+           return
+                
+            }
+            if Connectivity.isConnectedToInternet()
+            {
+            getlogged()
+            }else
+            {
+                Utility.Internetconnection(vc: self)
+            }
+        }
+    }
+    
+    @IBAction func BtLoginTapped(_ sender: MDCButton) {
+        if Connectivity.isConnectedToInternet()
+        {
+            Tolog()
+        }else
+        {
+            Utility.Internetconnection(vc: self)
+        }
+        Utility.ShowLoader()
+    }
+    
+    func getlogged()
+    {
+        Utility.ShowLoader()
+        let url = Configurator.baseURL + ApiEndPoints.login
+        let parameters = [
+                 "authToken":Keycenter.authToken,
+                 "email":TfEmail.text ?? "",
+                 "password" : TfPassword.text ?? ""
+               ] as? [String:Any]
+        AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
+            response in
+        print(response)
+                switch response.result {
+
+                       case .success(_):
+                           if let json = response.value
+                           {
+                              // successHandler((json as! [String:AnyObject]))
+                            guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
+                             
+                            if swiftyJsonVar["status"].description == "failure"
+                            {
+                                 Utility.hideLoader()
+                                Utility.showAlert(vc: self, message: swiftyJsonVar["msg"].description, titelstring: "BigFan TV")
+                            }else if swiftyJsonVar["status"].description == "OK"
+                            {
+                                 Utility.hideLoader()
+                                UserDefaults.standard.set(swiftyJsonVar["email"].description, forKey: "email")
+                                self.performSegue(withIdentifier: "tabbarcontroll", sender: self)
+                            }
+                           
+                           }
+                           
+                           break
+                       case .failure(let error):
+                       
+                        
+                        print("failed==\(error.errorDescription ?? "")")
+                        Utility.hideLoader()
+                           break
+                       }
+            
+        }
+    }
 }
 extension LoginVC:UITextFieldDelegate
 {
@@ -63,7 +147,7 @@ extension LoginVC:UITextFieldDelegate
         }else if textField == TfPassword
         {
             TfPassword.resignFirstResponder()
-            
+            Tolog()
         }
         
         return true
