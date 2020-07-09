@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4417667124B6F7D300CDFCB7 /* LaunchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4417667024B6F7D300CDFCB7 /* LaunchVC.swift */; };
+		4417667324B734F900CDFCB7 /* ForgotPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4417667224B734F900CDFCB7 /* ForgotPassVC.swift */; };
 		4429EFFB24B32B32000B3911 /* newsapletest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429EFFA24B32B32000B3911 /* newsapletest.swift */; };
 		4429F01124B33942000B3911 /* PageControlExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4429F01024B33942000B3911 /* PageControlExampleViewController.swift */; };
 		4439529E24ADBCF00088F68D /* testvc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439529D24ADBCF00088F68D /* testvc.swift */; };
@@ -79,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		1FD19FD68EB82352DBA89D0F /* Pods_bigfantv.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bigfantv.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4417667024B6F7D300CDFCB7 /* LaunchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchVC.swift; sourceTree = "<group>"; };
+		4417667224B734F900CDFCB7 /* ForgotPassVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPassVC.swift; sourceTree = "<group>"; };
 		4429EFFA24B32B32000B3911 /* newsapletest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newsapletest.swift; sourceTree = "<group>"; };
 		4429F01024B33942000B3911 /* PageControlExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControlExampleViewController.swift; sourceTree = "<group>"; };
 		4439529D24ADBCF00088F68D /* testvc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testvc.swift; sourceTree = "<group>"; };
@@ -166,6 +170,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		4417666F24B6F7BB00CDFCB7 /* Launchscreen */ = {
+			isa = PBXGroup;
+			children = (
+				4417667024B6F7D300CDFCB7 /* LaunchVC.swift */,
+			);
+			path = Launchscreen;
+			sourceTree = "<group>";
+		};
 		44484DD024A489320016FFB5 = {
 			isa = PBXGroup;
 			children = (
@@ -192,6 +204,7 @@
 		44484DDB24A489320016FFB5 /* bigfantv */ = {
 			isa = PBXGroup;
 			children = (
+				4417666F24B6F7BB00CDFCB7 /* Launchscreen */,
 				448FE4BC24B4A56D000697D9 /* LoginModel */,
 				448FE4B724B4885E000697D9 /* Api */,
 				448FE4B424B47E46000697D9 /* RegisterModel */,
@@ -242,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				448FE4B524B47E61000697D9 /* RegisterVC.swift */,
+				4417667224B734F900CDFCB7 /* ForgotPassVC.swift */,
 			);
 			path = RegisterModel;
 			sourceTree = "<group>";
@@ -319,6 +333,7 @@
 				44484DD724A489320016FFB5 /* Resources */,
 				5AA122E0804215DE3853FD87 /* [CP] Embed Pods Frameworks */,
 				44F0A85124A48AE7002C18C6 /* Embed Frameworks */,
+				54518DA7C6B8745340ED3127 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -420,6 +435,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		54518DA7C6B8745340ED3127 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigfantv/Pods-bigfantv-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bigfantv/Pods-bigfantv-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bigfantv/Pods-bigfantv-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5AA122E0804215DE3853FD87 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -449,6 +481,7 @@
 				44509A8324AF209E00D88718 /* SettingVC.swift in Sources */,
 				446076BF24AE210600DDA762 /* listen3.swift in Sources */,
 				446076B924AE1D7C00DDA762 /* Listenvc.swift in Sources */,
+				4417667124B6F7D300CDFCB7 /* LaunchVC.swift in Sources */,
 				446076B724AE1BDC00DDA762 /* test5.swift in Sources */,
 				4466C90E24A4C0AA0071B036 /* TabBarVC.swift in Sources */,
 				446076B524AE17B500DDA762 /* test4.swift in Sources */,
@@ -457,6 +490,7 @@
 				4429F01124B33942000B3911 /* PageControlExampleViewController.swift in Sources */,
 				4439529E24ADBCF00088F68D /* testvc.swift in Sources */,
 				44B96EA024B04CAE002AE8CE /* SAMPLE.swift in Sources */,
+				4417667324B734F900CDFCB7 /* ForgotPassVC.swift in Sources */,
 				44484DDD24A489320016FFB5 /* AppDelegate.swift in Sources */,
 				446076B324AE14A100DDA762 /* test3.swift in Sources */,
 				446076BD24AE20F100DDA762 /* listen2.swift in Sources */,

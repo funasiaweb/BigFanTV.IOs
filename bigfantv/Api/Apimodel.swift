@@ -18,10 +18,11 @@ class ApiEndPoints
  static let Register = "registeruser"
  static let CheckEmailExistance = "CheckEmailExistance"
  static let login = "login"
+ static let forgotpassword = "forgotpassword"
     
 }
 class Keycenter
 {
-static let authToken = "57b8617205fa3446ba004d583284f475"
+   static let authToken = "57b8617205fa3446ba004d583284f475"
 }
 

@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import MaterialComponents.MDCButton
+import GoogleSignIn
+import FBSDKLoginKit
 class LoginVC: UIViewController {
 
     var activeField: UITextField?
@@ -18,6 +20,18 @@ class LoginVC: UIViewController {
     @IBOutlet var TfPassword: UITextField!
     
     @IBOutlet var ScrollV: UIScrollView!
+    
+    @IBOutlet var BtLogin: MDCButton!
+    
+    @IBOutlet var ViLogin: UIView!
+    
+    @IBOutlet var LbOr: UILabel!
+    
+    @IBOutlet var ViGoogle: UIView!
+    
+    @IBOutlet var ViFb: UIView!
+    
+    @IBOutlet var Btfb: FBButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -37,10 +51,15 @@ class LoginVC: UIViewController {
          TfEmail.returnKeyType = .next
          TfPassword.returnKeyType = .next
           
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
          
+        BtLogin.layer.cornerRadius = BtLogin.frame.size.height / 2
+        BtLogin.layer.borderColor = UIColor.clear.cgColor
+        BtLogin.layer.borderWidth = 0.2
+        
                let paddingView22 = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 20, height: 50)))
                TfPassword.leftView = paddingView22
                TfPassword.leftViewMode = UITextField.ViewMode.always
@@ -53,6 +72,54 @@ class LoginVC: UIViewController {
                attributes: [NSAttributedString.Key.foregroundColor:Appcolor.textcolor])
                TfEmail.attributedPlaceholder = NSAttributedString(string: "Enter your Email",
                attributes: [NSAttributedString.Key.foregroundColor:Appcolor.textcolor])
+      
+              let googlesgninbutton = GIDSignInButton()
+               //  googlesgninbutton.frame = CGRect(x:0 , y: 0  , width: ViGoogle.frame.size.width, height: 30)
+               //   ViGoogle.addSubview(googlesgninbutton)
+        
+       
+              let frame = BtLogin.frame
+           
+            //  googlesgninbutton.frame.origin.x = frame.origin.x
+            //  googlesgninbutton.frame.minY = LbOr.frame.maxY + 20
+            //  googlesgninbutton.frame.minY
+             // googlesgninbutton.frame.size.width = BtLogin.frame.size.width
+              //googlesgninbutton.frame.size.height = BtLogin.frame.size.height
+              
+            //  googlesgninbutton.frame = CGRect(x: loginButton.frame.origin.x , y: loginButton.frame.origin.y +  loginButton.frame.size.height + 50  , width: loginButton.frame.size.width, height: 50)
+        
+              googlesgninbutton.translatesAutoresizingMaskIntoConstraints = false
+             ViGoogle.addSubview(googlesgninbutton)
+        
+        googlesgninbutton.leadingAnchor.constraint(equalTo: ViGoogle.leadingAnchor, constant: 0).isActive = true
+        googlesgninbutton.widthAnchor.constraint(equalTo: ViGoogle.widthAnchor , constant: 0).isActive = true
+         googlesgninbutton.heightAnchor.constraint(equalTo: ViGoogle.heightAnchor , constant: 10).isActive = true
+      //  googlesgninbutton.widthAnchor.constraint(equalTo: BtLogin.frame..widtsizeh , multiplier: <#T##CGFloat#>, constant: <#T##CGFloat#>)
+         googlesgninbutton.topAnchor.constraint(equalTo: ViGoogle.topAnchor, constant: 0).isActive = true
+         //googlesgninbutton.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        
+              
+              view.layoutIfNeeded()
+             
+      //  GIDSignIn.sharedInstance().pre = self
+              GIDSignIn.sharedInstance()?.delegate  = self
+              GIDSignIn.sharedInstance()?.uiDelegate = self
+       
+        let loginButton = FBLoginButton()
+        //loginButton.frame = CGRect(x:0 , y: 0  , width: ViFb.frame.size.width, height: googlesgninbutton.frame.size.height)
+        //ViFb.addSubview(loginButton)
+     //   loginButton.delegate = self
+      //  loginButton.tooltipColorStyle = .neutralGray
+        loginButton.isUserInteractionEnabled = false
+       loginButton.translatesAutoresizingMaskIntoConstraints = false
+             ViFb.addSubview(loginButton)
+        loginButton.leadingAnchor.constraint(equalTo: ViFb.leadingAnchor, constant: 0).isActive = true
+        
+        loginButton.widthAnchor.constraint(equalTo: ViFb.widthAnchor, constant: 0).isActive = true
+        loginButton.topAnchor.constraint(equalTo: ViFb.topAnchor, constant: 4).isActive = true
+         loginButton.heightAnchor.constraint(equalTo: ViFb.heightAnchor, constant: 5).isActive = true
+        
+         
     }
     
     func Tolog()
@@ -89,7 +156,7 @@ class LoginVC: UIViewController {
         {
             Utility.Internetconnection(vc: self)
         }
-        Utility.ShowLoader()
+        
     }
     
     func getlogged()
@@ -101,6 +168,44 @@ class LoginVC: UIViewController {
                  "email":TfEmail.text ?? "",
                  "password" : TfPassword.text ?? ""
                ] as? [String:Any]
+        
+        let manager = Alamofire.Session.default
+        manager.session.configuration.timeoutIntervalForRequest = 20
+
+        manager.request(url, method: .post, parameters: parameters)
+                .responseJSON {
+                    response in
+                    switch (response.result)
+                    {
+                    case .success:
+                        if let json = response.value
+                                           {
+                                              // successHandler((json as! [String:AnyObject]))
+                                            guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
+                                             
+                                            if swiftyJsonVar["status"].description == "failure"
+                                            {
+                                                 Utility.hideLoader()
+                                                Utility.showAlert(vc: self, message: swiftyJsonVar["msg"].description, titelstring: "BigFan TV")
+                                            }else if swiftyJsonVar["status"].description == "OK"
+                                            {
+                                                 Utility.hideLoader()
+                                                UserDefaults.standard.set(swiftyJsonVar["email"].description, forKey: "email")
+                                                self.performSegue(withIdentifier: "tabbarcontroll", sender: self)
+                                            }
+                                           
+                                           }
+                                           
+                                           break // succes path
+                    case .failure(let error):
+                        Utility.hideLoader()
+                        if error._code == NSURLErrorTimedOut {
+                            print("Request timeout!")
+                        }
+                    }
+                }
+        
+        /*
         AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
             response in
         print(response)
@@ -134,7 +239,14 @@ class LoginVC: UIViewController {
                            break
                        }
             
+            
         }
+        */
+    }
+    
+    override var prefersStatusBarHidden: Bool
+        {
+        return true
     }
 }
 extension LoginVC:UITextFieldDelegate
@@ -230,4 +342,27 @@ extension LoginVC
                 activeField = nil
                  
             }
+}
+extension LoginVC:GIDSignInDelegate,GIDSignInUIDelegate
+{
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,
+                 withError error: Error!) {
+         if let error = error {
+           if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+             print("The user has not signed in before or they have since signed out.")
+           } else {
+             print("\(error.localizedDescription)")
+           }
+           return
+         }
+         let userId = user.userID                  // For client-side use only!
+         let idToken = user.authentication.idToken // Safe to send to the server
+         let fullName = user.profile.name
+         let givenName = user.profile.givenName
+         let familyName = user.profile.familyName
+         var email = user.profile.email
+         
+        print("fullName===\(fullName)")
+      
+       }
 }

@@ -29,6 +29,7 @@ class RegisterVC: UIViewController {
     
     @IBOutlet var LbError: UILabel!
     
+    @IBOutlet var BtRegister: MDCButton!
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -57,7 +58,11 @@ class RegisterVC: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
       
-
+        BtRegister.layer.cornerRadius = BtRegister.frame.size.height / 2
+        BtRegister.layer.borderColor = UIColor.clear.cgColor
+        BtRegister.layer.borderWidth = 0.2
+        
+        
         let paddingView = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 20, height: 50)))
             TfName.leftView = paddingView
             TfName.leftViewMode = UITextField.ViewMode.always
@@ -164,50 +169,50 @@ class RegisterVC: UIViewController {
                   "authToken":Keycenter.authToken,
                   "email":TfEmail.text ?? "",
                 ] as? [String:Any]
-         AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
-             response in
-         print(response)
-                 switch response.result {
+        
+        
+        
+            let manager = Alamofire.Session.default
+            manager.session.configuration.timeoutIntervalForRequest = 20
 
-                        case .success(_):
-                            if let json = response.value
-                            {
-                               // successHandler((json as! [String:AnyObject]))
-                             guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
-                             
-                             
-                             if swiftyJsonVar["isExists"].int == 0
-                             {
-                                if Connectivity.isConnectedToInternet()
-                                {
-                                    self.registerUser()
-                                }else
-                                {
-                                    Utility.Internetconnection(vc: self)
-                                }
-                               
-                             }
-                             else if swiftyJsonVar["isExists"].int == 1
-                             {
-                                 self.IsEmailexists = true
-                                 self.LbError.text = "Email already exists"
-                                 self.LbError.isHidden = false
-                                 self.VEmail.layer.borderColor = UIColor.red.cgColor
-                            
-                             }
-                             print("succesfull")
-                              
-                            }
-                            
+            manager.request(url, method: .post, parameters: parameters)
+                    .responseJSON {
+                        response in
+                        switch (response.result)
+                        {
+                        case .success:
+                       guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
+                                                        
+                                                        
+                                                        if swiftyJsonVar["isExists"].int == 0
+                                                        {
+                                                           if Connectivity.isConnectedToInternet()
+                                                           {
+                                                               self.registerUser()
+                                                           }else
+                                                           {
+                                                               Utility.Internetconnection(vc: self)
+                                                           }
+                                                          
+                                                        }
+                                                        else if swiftyJsonVar["isExists"].int == 1
+                                                        {
+                                                            self.IsEmailexists = true
+                                                            self.LbError.text = "Email already exists"
+                                                            self.LbError.isHidden = false
+                                                            self.VEmail.layer.borderColor = UIColor.red.cgColor
+                                                       
+                                                        }
                             break
                         case .failure(let error):
-                        
-                         
-                         print("failed==\(error.errorDescription ?? "")")
-                            break
+                            Utility.hideLoader()
+                            if error._code == NSURLErrorTimedOut {
+                                print("Request timeout!")
+                            }
                         }
-             
-         }
+                    }
+        
+       
      }
     func checkemailexistance()
     {
@@ -219,65 +224,59 @@ class RegisterVC: UIViewController {
                  "authToken":Keycenter.authToken,
                  "email":TfEmail.text ?? "",
                ] as? [String:Any]
-        AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
-            response in
-        print(response)
-                switch response.result {
+                  
+        let manager = Alamofire.Session.default
+            manager.session.configuration.timeoutIntervalForRequest = 20
 
-                       case .success(_):
-                           if let json = response.value
-                           {
-                              // successHandler((json as! [String:AnyObject]))
-                            guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
-                            
-                            
-                            if swiftyJsonVar["isExists"].int == 0
-                            {
-                                
-                                self.IsEmailexists = false
-                                self.TfEmail.resignFirstResponder()
-                                self.TfPassword.becomeFirstResponder()
-                                self.LbError.isHidden = true
-                                self.VEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
-                            }
-                            else if swiftyJsonVar["isExists"].int == 1
-                            {
-                                self.IsEmailexists = true
-                                self.LbError.text = "Email already exists"
-                                self.LbError.isHidden = false
-                                self.VEmail.layer.borderColor = UIColor.red.cgColor
-                           
-                            }
-                            self.ActivityInd.isHidden = true
-                            self.ActivityInd.stopAnimating()
-                            print("succesfull")
+            manager.request(url, method: .post, parameters: parameters)  .responseJSON {
+                              response in
                              
-                           }
-                           
-                           break
-                       case .failure(let error):
-                       
-                        self.ActivityInd.isHidden = true
-                        self.ActivityInd.stopAnimating()
-                        print("failed==\(error.errorDescription ?? "")")
-                           break
-                       }
-            
-        }
+                switch (response.result)
+                  {
+                              case .success:
+                          if let json = response.value
+                                                       {
+                                                          // successHandler((json as! [String:AnyObject]))
+                                                        guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
+                                                        
+                                                        
+                                                        if swiftyJsonVar["isExists"].int == 0
+                                                        {
+                                                            
+                                                            self.IsEmailexists = false
+                                                            self.TfEmail.resignFirstResponder()
+                                                            self.TfPassword.becomeFirstResponder()
+                                                            self.LbError.isHidden = true
+                                                            self.VEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
+                                                        }
+                                                        else if swiftyJsonVar["isExists"].int == 1
+                                                        {
+                                                            self.IsEmailexists = true
+                                                            self.LbError.text = "Email already exists"
+                                                            self.LbError.isHidden = false
+                                                            self.VEmail.layer.borderColor = UIColor.red.cgColor
+                                                       
+                                                        }
+                                                        self.ActivityInd.isHidden = true
+                                                        self.ActivityInd.stopAnimating()
+                                                        print("succesfull")
+                                                         
+                                                       }
+                                                       
+                                                       break
+                              case .failure(let error):
+                                  Utility.hideLoader()
+                                  if error._code == NSURLErrorTimedOut {
+                                      print("Request timeout!")
+                                  }
+                              }
+                          }
+         
     }
     
     func registerUser()
     {
-       let activityIndicator = MDCActivityIndicator()
-         activityIndicator.radius = 22
-         activityIndicator.strokeWidth = 2
-         activityIndicator.frame = view.frame
-         activityIndicator.cycleColors = [UIColor.black]
-        // activityIndicator.sizeToFit()
-         activityIndicator.indicatorMode = .indeterminate
-         activityIndicator.progress = 0.5
-         view.addSubview(activityIndicator)
-       activityIndicator.startAnimating()
+        Utility.ShowLoader()
         let url = Configurator.baseURL + ApiEndPoints.Register
         
         let parameters = [
@@ -287,35 +286,38 @@ class RegisterVC: UIViewController {
             "password":TfPassword.text ?? ""
             ] as? [String:Any]
         
-        AF.request(url, method: .post, parameters: parameters,encoding: JSONEncoding.default, headers: nil).responseJSON {
-            response in
-        
-                switch response.result {
+                 let manager = Alamofire.Session.default
+                 manager.session.configuration.timeoutIntervalForRequest = 20
 
-                       case .success(_):
-                           if let json = response.value
-                           {
-                              // successHandler((json as! [String:AnyObject]))
-                            guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
-                            
-                            UserDefaults.standard.set(swiftyJsonVar["email"].description, forKey: "email")
-                            UserDefaults.standard.set(swiftyJsonVar["id"].description, forKey: "id")
-                            UserDefaults.standard.set(swiftyJsonVar["profile_image"].description, forKey: "profile_image")
-                            UserDefaults.standard.set(swiftyJsonVar["studio_id"].description, forKey: "studio_id")
-                            
-                            activityIndicator.stopAnimating()
-                            self.dismiss(animated: true, completion: nil)
-                           }
-                           
-                           break
-                       case .failure(let error):
-                           activityIndicator.stopAnimating()
-                        print("failed==\(error.errorDescription ?? "")")
-                           break
-                       }
-            
-        }
-    }
+                 manager.request(url, method: .post, parameters: parameters)
+                         .responseJSON {
+                             response in
+                             switch (response.result)
+                             {
+                             case .success:
+                            if let json = response.value
+                                                  {
+                                                     // successHandler((json as! [String:AnyObject]))
+                                                   guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
+                                                   
+                                                   UserDefaults.standard.set(swiftyJsonVar["email"].description, forKey: "email")
+                                                   UserDefaults.standard.set(swiftyJsonVar["id"].description, forKey: "id")
+                                                   UserDefaults.standard.set(swiftyJsonVar["profile_image"].description, forKey: "profile_image")
+                                                   UserDefaults.standard.set(swiftyJsonVar["studio_id"].description, forKey: "studio_id")
+                                                   
+                                                   Utility.hideLoader()
+                                                   self.dismiss(animated: true, completion: nil)
+                                                  }
+                                                  
+                                                  break
+                             case .failure(let error):
+                                 Utility.hideLoader()
+                                 if error._code == NSURLErrorTimedOut {
+                                     print("Request timeout!")
+                                 }
+                             }
+                         }
+             }
 }
 
 extension RegisterVC:UITextFieldDelegate

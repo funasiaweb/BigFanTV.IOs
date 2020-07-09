@@ -11,32 +11,26 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>BigFan TV
-
-
-BigFan TV
-
-
-BigFan TV
-
-
-BigFan TV
-
-BigFan TV</string>
+	<string>BigFan TV</string>
 	<key>CFBundlePackageType</key>
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.438516930813-ssg8dte52kvfl6h6jubgtcgmtgjcv24o</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
-	<key>UILaunchStoryboardName</key>
-	<string>LaunchScreen</string>
-	<key>UIMainStoryboardFile~ipad</key>
-	<string>MainIpad</string>
-	<key>UIMainStoryboardFile~iphone</key>
-	<string>Main</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Muli-ExtraBold.ttf</string>
@@ -45,6 +39,12 @@ BigFan TV</string>
 		<string>Muli-Medium.ttf</string>
 		<string>Muli-Regular.ttf</string>
 	</array>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>MainIpad</string>
+	<key>UIMainStoryboardFile~iphone</key>
+	<string>Main</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
