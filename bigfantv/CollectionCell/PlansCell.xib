@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="240" id="KGk-i7-Jjw" customClass="PlansCell" customModule="bigfantv" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KaI-BT-Bnf">
+                        <rect key="frame" x="10" y="10" width="300" height="220"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newlogo" translatesAutoresizingMaskIntoConstraints="NO" id="ESz-xt-15f">
+                                <rect key="frame" x="40" y="40" width="220" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="pAD-d0-cjG"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wo1-TV-tqU">
+                                <rect key="frame" x="8" y="125" width="284" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="8H5-DM-Zd1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LPz-WU-Nlh">
+                                <rect key="frame" x="571.5" y="146" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qq3-1A-Lfh">
+                                <rect key="frame" x="8" y="166" width="284" height="34"/>
+                                <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12549019610000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Qq3-1A-Lfh" secondAttribute="trailing" constant="8" id="5BP-Lr-jru"/>
+                            <constraint firstItem="Qq3-1A-Lfh" firstAttribute="leading" secondItem="KaI-BT-Bnf" secondAttribute="leading" constant="8" id="6yB-De-acz"/>
+                            <constraint firstAttribute="trailing" secondItem="wo1-TV-tqU" secondAttribute="trailing" constant="8" id="GPP-Db-PgX"/>
+                            <constraint firstItem="wo1-TV-tqU" firstAttribute="leading" secondItem="KaI-BT-Bnf" secondAttribute="leading" constant="8" id="KGV-ha-J8k"/>
+                            <constraint firstAttribute="bottom" secondItem="Qq3-1A-Lfh" secondAttribute="bottom" constant="20" id="UZw-i5-pgU"/>
+                            <constraint firstAttribute="trailing" secondItem="ESz-xt-15f" secondAttribute="trailing" constant="40" id="cWt-c5-hG1"/>
+                            <constraint firstItem="ESz-xt-15f" firstAttribute="leading" secondItem="KaI-BT-Bnf" secondAttribute="leading" constant="40" id="mEU-Be-ZP0"/>
+                            <constraint firstItem="ESz-xt-15f" firstAttribute="top" secondItem="KaI-BT-Bnf" secondAttribute="top" constant="40" id="q0g-fa-vzA"/>
+                            <constraint firstItem="Qq3-1A-Lfh" firstAttribute="top" secondItem="wo1-TV-tqU" secondAttribute="bottom" constant="20" id="rfp-N1-STL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth1">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor1">
+                                <color key="value" red="0.1215686275" green="0.12549019610000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="KaI-BT-Bnf" secondAttribute="bottom" constant="10" id="Pua-3F-pkc"/>
+                    <constraint firstItem="KaI-BT-Bnf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="WdF-XZ-av0"/>
+                    <constraint firstItem="KaI-BT-Bnf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="qc8-BM-82I"/>
+                    <constraint firstAttribute="trailing" secondItem="KaI-BT-Bnf" secondAttribute="trailing" constant="10" id="xBV-7f-DZX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="Btsubscribe" destination="Qq3-1A-Lfh" id="aa7-ca-8CR"/>
+                <outlet property="LbTitle" destination="wo1-TV-tqU" id="9ST-lH-Qxc"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="188.16964285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="newlogo" width="799" height="256"/>
+    </resources>
+</document>

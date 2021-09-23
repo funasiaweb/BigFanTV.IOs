@@ -16,6 +16,10 @@ class LaunchVC: UIViewController {
         super.viewDidLoad()
 
         
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
              BtLogin.layer.cornerRadius = BtLogin.frame.size.height / 2
              BtLogin.layer.borderColor = UIColor.clear.cgColor
              BtLogin.layer.borderWidth = 0.2
@@ -23,7 +27,6 @@ class LaunchVC: UIViewController {
              BtCreate.layer.cornerRadius = BtCreate.frame.size.height / 2
              BtCreate.layer.borderColor = UIColor.clear.cgColor
              BtCreate.layer.borderWidth = 0.2
-        
         
     }
     

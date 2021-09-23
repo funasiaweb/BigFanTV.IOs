@@ -17,15 +17,32 @@ class RegisterVC: UIViewController {
     @IBOutlet var TfEmail: UITextField!
     @IBOutlet var TfPassword: UITextField!
     @IBOutlet var TfPassword2: UITextField!
-   
+    
+    @IBOutlet var BtPassword1: UIButton!
+    
+    @IBOutlet var BtPassword2: UIButton!
     
     @IBOutlet var VEmail: CardView!
+    @IBOutlet var ViName: CardView!
+    
+    
+    @IBOutlet var ViPassword2: CardView!
+    @IBOutlet var ViPassword1: CardView!
+    
+    @IBOutlet var ErrName: UILabel!
+    @IBOutlet var ErrPass1: UILabel!
+    
+    @IBOutlet var Errpass2: UILabel!
+    
     @IBOutlet var ScrollV: UIScrollView!
     
     @IBOutlet var ActivityInd: UIActivityIndicatorView!
     
-      var activeField: UITextField?
+    @IBOutlet var BtEmailexist: UIButton!
+    var activeField: UITextField?
       var IsEmailexists = true
+    var IsPassword1 = false
+    var IsPassword2 = false
     
     @IBOutlet var LbError: UILabel!
     
@@ -48,16 +65,22 @@ class RegisterVC: UIViewController {
         TfPassword2.returnKeyType = .done
         
         LbError.isHidden = true
+        ErrName.isHidden  = true
+        ErrPass1.isHidden  = true
+        Errpass2.isHidden  = true
         
         IsEmailexists = true
         ActivityInd.isHidden = true
         
+        BtEmailexist.isHidden = true
+        
     }
-    override func viewWillAppear(_ animated: Bool) {
      
-    }
     override func viewDidAppear(_ animated: Bool) {
       
+        //TfPassword.text = "123456"
+       // TfPassword2.text = "123456"
+         
         BtRegister.layer.cornerRadius = BtRegister.frame.size.height / 2
         BtRegister.layer.borderColor = UIColor.clear.cgColor
         BtRegister.layer.borderWidth = 0.2
@@ -110,6 +133,7 @@ class RegisterVC: UIViewController {
     {
         if Connectivity.isConnectedToInternet()
         {
+            HideconfirmALL()
           checkforregister()
         }else
         {
@@ -121,33 +145,34 @@ class RegisterVC: UIViewController {
     {
         if TfName.text?.isEmpty ?? false
             {
-                self.view.makeToast("Please enter Name")
+                HideALL(viewa: ViName, Label: ErrName, message: "Name required.")
+                 
             }
             else if TfEmail.text?.isEmpty ?? false
             {
-                self.view.makeToast("Please enter Email")
+                 HideALL(viewa: VEmail, Label: LbError, message: "Email required.")
+               
             }
             else if TfPassword.text?.isEmpty ?? false
             {
-                self.view.makeToast("Please enter password")
+                 HideALL(viewa: ViPassword1, Label: ErrPass1, message: "Password required.")
+                
             }
             else if TfPassword2.text?.isEmpty ?? false
             {
-                self.view.makeToast("Please enter password")
+                 HideALL(viewa: ViPassword2, Label: Errpass2 , message: "Password required.")
+              
             }
             else if TfPassword2.text != TfPassword.text
             {
-                self.view.makeToast("Passwords do not match")
-            }
-            else if TfPassword2.text?.count ?? 0 < 6 || TfPassword.text?.count ?? 0 < 6
-            {
-                self.view.makeToast("Passwords must more than 6 letters")
+                 HideALL(viewa: ViPassword2, Label: Errpass2, message: "Passwords do not match.")
+               
             }
             else
             {
                 guard isValidEmail(testStr: TfEmail.text ?? "")else {
-                     
-                    view.makeToast("Please enter proper Email Address")
+                      HideALL(viewa: ViName, Label: ErrName, message: "Enter valid email.")
+                    
                     return
                 }
                 if Connectivity.isConnectedToInternet()
@@ -172,8 +197,8 @@ class RegisterVC: UIViewController {
         
         
         
-            let manager = Alamofire.Session.default
-            manager.session.configuration.timeoutIntervalForRequest = 20
+            let manager = Alamofire.SessionManager.default
+            manager.session.configuration.timeoutIntervalForRequest = 2000
 
             manager.request(url, method: .post, parameters: parameters)
                     .responseJSON {
@@ -188,6 +213,7 @@ class RegisterVC: UIViewController {
                                                         {
                                                            if Connectivity.isConnectedToInternet()
                                                            {
+                                                            self.HideconfirmALL()
                                                                self.registerUser()
                                                            }else
                                                            {
@@ -198,14 +224,17 @@ class RegisterVC: UIViewController {
                                                         else if swiftyJsonVar["isExists"].int == 1
                                                         {
                                                             self.IsEmailexists = true
-                                                            self.LbError.text = "Email already exists"
-                                                            self.LbError.isHidden = false
+                                                           // self.LbError.text = "Email already exists"
+                                                           // self.LbError.isHidden = false
+                                                            self.HideALL(viewa: self.VEmail, Label: self.LbError, message: "Email already exists")
+                                                            self.BtEmailexist.isHidden = false
+                                                            self.BtEmailexist.setBackgroundImage(UIImage(named: "criss-cross"), for: .normal)
                                                             self.VEmail.layer.borderColor = UIColor.red.cgColor
                                                        
                                                         }
                             break
                         case .failure(let error):
-                            Utility.hideLoader()
+                            Utility.hideLoader(vc: self)
                             if error._code == NSURLErrorTimedOut {
                                 print("Request timeout!")
                             }
@@ -225,8 +254,8 @@ class RegisterVC: UIViewController {
                  "email":TfEmail.text ?? "",
                ] as? [String:Any]
                   
-        let manager = Alamofire.Session.default
-            manager.session.configuration.timeoutIntervalForRequest = 20
+        let manager = Alamofire.SessionManager.default
+            manager.session.configuration.timeoutIntervalForRequest = 2000
 
             manager.request(url, method: .post, parameters: parameters)  .responseJSON {
                               response in
@@ -247,14 +276,19 @@ class RegisterVC: UIViewController {
                                                             self.TfEmail.resignFirstResponder()
                                                             self.TfPassword.becomeFirstResponder()
                                                             self.LbError.isHidden = true
+                                                            self.BtEmailexist.isHidden = false
+                                                            self.BtEmailexist.setBackgroundImage(UIImage(named: "correct"), for: .normal)
                                                             self.VEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
                                                         }
                                                         else if swiftyJsonVar["isExists"].int == 1
                                                         {
                                                             self.IsEmailexists = true
-                                                            self.LbError.text = "Email already exists"
-                                                            self.LbError.isHidden = false
-                                                            self.VEmail.layer.borderColor = UIColor.red.cgColor
+                                                         //   self.LbError.text = "Email already exists"
+                                                          //  self.LbError.isHidden = false
+                                                          //  self.VEmail.layer.borderColor = UIColor.red.cgColor
+                                                            self.HideALL(viewa: self.VEmail, Label: self.LbError, message: "Email already exists")
+                                                            self.BtEmailexist.isHidden = false
+                                                            self.BtEmailexist.setBackgroundImage(UIImage(named: "criss-cross"), for: .normal)
                                                        
                                                         }
                                                         self.ActivityInd.isHidden = true
@@ -265,7 +299,7 @@ class RegisterVC: UIViewController {
                                                        
                                                        break
                               case .failure(let error):
-                                  Utility.hideLoader()
+                                Utility.hideLoader(vc: self)
                                   if error._code == NSURLErrorTimedOut {
                                       print("Request timeout!")
                                   }
@@ -273,21 +307,60 @@ class RegisterVC: UIViewController {
                           }
          
     }
-    
+    func HideALL(viewa:CardView,Label:UILabel,message:String)
+       {
+           ErrName.isHidden = true
+           ErrPass1.isHidden  = true
+           Errpass2.isHidden = true
+           LbError.isHidden = true
+            
+           ViName.layer.borderColor = Appcolor.textBordercolor.cgColor
+           VEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
+           ViPassword1.layer.borderColor = Appcolor.textBordercolor.cgColor
+           ViPassword2.layer.borderColor = Appcolor.textBordercolor.cgColor
+           
+            
+           viewa.layer.borderColor = UIColor.red.cgColor
+           Label.isHidden  = false
+            viewa.isHidden = false
+           Label.text = message
+           
+           
+           
+           
+       }
+    func HideconfirmALL()
+       {
+           ErrName.isHidden = true
+           ErrPass1.isHidden  = true
+           Errpass2.isHidden = true
+           LbError.isHidden = true
+            
+           ViName.layer.borderColor = Appcolor.textBordercolor.cgColor
+           VEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
+           ViPassword1.layer.borderColor = Appcolor.textBordercolor.cgColor
+           ViPassword2.layer.borderColor = Appcolor.textBordercolor.cgColor
+           
+      
+           
+       }
     func registerUser()
     {
-        Utility.ShowLoader()
+       Utility.ShowLoader(vc: self)
         let url = Configurator.baseURL + ApiEndPoints.Register
         
         let parameters = [
             "authToken":Keycenter.authToken,
-            "name":TfName.text ?? "",
+            "name":TfName.text,
             "email":TfEmail.text ?? "",
-            "password":TfPassword.text ?? ""
+            "password":TfPassword.text ?? "",
+            "device_id": UIDevice.current.identifierForVendor?.uuidString ?? "",
+            "device_type":"3"
             ] as? [String:Any]
+        print(parameters)
         
-                 let manager = Alamofire.Session.default
-                 manager.session.configuration.timeoutIntervalForRequest = 20
+                 let manager = Alamofire.SessionManager.default
+                 manager.session.configuration.timeoutIntervalForRequest = 2000
 
                  manager.request(url, method: .post, parameters: parameters)
                          .responseJSON {
@@ -302,22 +375,61 @@ class RegisterVC: UIViewController {
                                                    
                                                    UserDefaults.standard.set(swiftyJsonVar["email"].description, forKey: "email")
                                                    UserDefaults.standard.set(swiftyJsonVar["id"].description, forKey: "id")
+                                                   
                                                    UserDefaults.standard.set(swiftyJsonVar["profile_image"].description, forKey: "profile_image")
                                                    UserDefaults.standard.set(swiftyJsonVar["studio_id"].description, forKey: "studio_id")
                                                    
-                                                   Utility.hideLoader()
-                                                   self.dismiss(animated: true, completion: nil)
+                                                   Utility.hideLoader(vc: self)
+        let alertController = UIAlertController(title: "BigFan TV", message: "Email has sent on your registered Email address", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Ok", style: .default) { action in
+                   self.dismiss(animated: true , completion: nil)
+            alertController.dismiss(animated: true, completion: nil)
+                 })
+        
+                self.present(alertController, animated: true, completion: {() -> Void in
+             alertController.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: nil))
+                                                                       })
+                                                   
                                                   }
                                                   
                                                   break
                              case .failure(let error):
-                                 Utility.hideLoader()
+                                 Utility.hideLoader(vc: self)
                                  if error._code == NSURLErrorTimedOut {
                                      print("Request timeout!")
                                  }
                              }
                          }
              }
+    
+    @IBAction func BtPassword1Tapped(_ sender: UIButton) {
+        if IsPassword1 == true
+        {
+            BtPassword1.setBackgroundImage(UIImage(named: "eyenew"), for: .normal)
+            TfPassword.isSecureTextEntry = true
+            IsPassword1 = false
+        }else
+        {
+            BtPassword1.setBackgroundImage(UIImage(named: "hidenew"), for: .normal)
+            TfPassword.isSecureTextEntry = false
+            IsPassword1 = true
+        }
+    }
+    
+    @IBAction func BtPassword2Tapped(_ sender: UIButton) {
+        if IsPassword2 == true
+               {
+                   BtPassword2.setBackgroundImage(UIImage(named: "eyenew"), for: .normal)
+                   IsPassword2 = false
+                TfPassword2.isSecureTextEntry = true
+               }else
+               {
+                   BtPassword2.setBackgroundImage(UIImage(named: "hidenew"), for: .normal)
+                   IsPassword2 = true
+                TfPassword2.isSecureTextEntry = false
+               }
+    }
+    
 }
 
 extension RegisterVC:UITextFieldDelegate
@@ -332,9 +444,10 @@ extension RegisterVC:UITextFieldDelegate
             //TfEmail.resignFirstResponder()
             guard isValidEmail(testStr: TfEmail.text ?? "")else
             {       //view.makeToast("Please enter proper Email Address")
-                self.LbError.isHidden = false
-                self.VEmail.layer.borderColor = UIColor.red.cgColor
-                LbError.text = "Please enter proper Email address"
+               // self.LbError.isHidden = false
+               // self.VEmail.layer.borderColor = UIColor.red.cgColor
+                 HideALL(viewa: VEmail, Label: LbError, message: "Enter valid email.")
+               // LbError.text = "Enter valid email"
                 return false
             }
             if Connectivity.isConnectedToInternet()
@@ -431,8 +544,7 @@ extension RegisterVC
 
         private func textFieldDidBeginEditing(textField: UITextField!)
             {
-                VEmail.layer.borderColor = UIColor.clear.cgColor
-                LbError.isHidden = true
+                HideconfirmALL()
                 activeField = textField
               
             }

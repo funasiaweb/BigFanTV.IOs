@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+        <array key="Muli-VariableFont_wght.ttf">
+            <string>Muli-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="UpgradeplanCell" customModule="bigfantv" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tEw-6e-cIY">
+                        <rect key="frame" x="10" y="10" width="300" height="220"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="newlogo" translatesAutoresizingMaskIntoConstraints="NO" id="fQ1-Wq-yBm">
+                                <rect key="frame" x="40" y="40" width="220" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="iwI-GM-cA2"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jto-y3-fO3">
+                                <rect key="frame" x="8" y="105" width="284" height="22"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="19"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfE-B0-M8E">
+                                <rect key="frame" x="571.5" y="146" width="41" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZL-3V-3oh">
+                                <rect key="frame" x="8" y="137" width="284" height="24"/>
+                                <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="m06-Tt-qwU"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kvH-g0-UUQ">
+                                <rect key="frame" x="8" y="170" width="284" height="30"/>
+                                <color key="backgroundColor" red="0.2344017551" green="0.642578125" blue="0.58171018839999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rji-Wz-wcC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                <state key="normal" title="Upgrade Plan" backgroundImage="gradient-image6">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth1">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor1">
+                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12549019610000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="fQ1-Wq-yBm" secondAttribute="trailing" constant="40" id="3ak-xh-6fD"/>
+                            <constraint firstItem="jto-y3-fO3" firstAttribute="top" secondItem="fQ1-Wq-yBm" secondAttribute="bottom" constant="5" id="7eb-Ra-Gj9"/>
+                            <constraint firstItem="fQ1-Wq-yBm" firstAttribute="leading" secondItem="tEw-6e-cIY" secondAttribute="leading" constant="40" id="App-EM-CU9"/>
+                            <constraint firstItem="kvH-g0-UUQ" firstAttribute="leading" secondItem="tEw-6e-cIY" secondAttribute="leading" constant="8" id="BZs-50-84v"/>
+                            <constraint firstAttribute="trailing" secondItem="kvH-g0-UUQ" secondAttribute="trailing" constant="8" id="DBE-qN-Hre"/>
+                            <constraint firstAttribute="bottom" secondItem="kvH-g0-UUQ" secondAttribute="bottom" constant="20" id="Lwh-xk-Pge"/>
+                            <constraint firstAttribute="trailing" secondItem="TZL-3V-3oh" secondAttribute="trailing" constant="8" id="Trq-h1-bQi"/>
+                            <constraint firstItem="jto-y3-fO3" firstAttribute="leading" secondItem="tEw-6e-cIY" secondAttribute="leading" constant="8" id="aB7-YD-VOD"/>
+                            <constraint firstItem="TZL-3V-3oh" firstAttribute="top" secondItem="jto-y3-fO3" secondAttribute="bottom" constant="10" id="eje-44-NtW"/>
+                            <constraint firstItem="fQ1-Wq-yBm" firstAttribute="top" secondItem="tEw-6e-cIY" secondAttribute="top" constant="40" id="hfc-DO-Fp2"/>
+                            <constraint firstItem="kvH-g0-UUQ" firstAttribute="top" secondItem="TZL-3V-3oh" secondAttribute="bottom" constant="9" id="jPt-bk-UMK"/>
+                            <constraint firstItem="TZL-3V-3oh" firstAttribute="leading" secondItem="tEw-6e-cIY" secondAttribute="leading" constant="8" id="vDN-ex-6bP"/>
+                            <constraint firstAttribute="trailing" secondItem="jto-y3-fO3" secondAttribute="trailing" constant="8" id="y0i-Hg-L7G"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="skeletonCornerRadius">
+                                <real key="value" value="0.0"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius1">
+                                <real key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth1">
+                                <real key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor1">
+                                <color key="value" red="0.1215686275" green="0.12549019610000001" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="tEw-6e-cIY" secondAttribute="bottom" constant="10" id="4zb-jw-1cW"/>
+                    <constraint firstItem="tEw-6e-cIY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="AS0-Mx-yKv"/>
+                    <constraint firstAttribute="trailing" secondItem="tEw-6e-cIY" secondAttribute="trailing" constant="10" id="PhB-mM-wEX"/>
+                    <constraint firstItem="tEw-6e-cIY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="fGe-cw-OeF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="BtUpgrade" destination="kvH-g0-UUQ" id="dQG-cd-4kO"/>
+                <outlet property="Btsubscribe" destination="TZL-3V-3oh" id="Kij-AE-ULC"/>
+                <outlet property="LbTitle" destination="jto-y3-fO3" id="TA8-NR-mTZ"/>
+            </connections>
+            <point key="canvasLocation" x="284" y="122"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="gradient-image6" width="1000" height="200"/>
+        <image name="newlogo" width="799" height="256"/>
+    </resources>
+</document>

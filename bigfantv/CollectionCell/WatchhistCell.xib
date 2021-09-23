@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="WatchhistCell" customModule="bigfantv" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="226" height="180"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="226" height="180"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-wd-tzv">
+                        <rect key="frame" x="0.0" y="0.0" width="226" height="175"/>
+                    </imageView>
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pl5-uS-HVb" customClass="ProgressMeter" customModule="ProgressMeter">
+                        <rect key="frame" x="0.0" y="160" width="226" height="20"/>
+                        <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="7Mf-yt-dNa"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="numberOfDivisions">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="annotationPositionOnTop" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="progressTintColor">
+                                <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="trackTintColor">
+                                <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Pl5-uS-HVb" secondAttribute="bottom" id="E18-rl-wcF"/>
+                <constraint firstAttribute="trailing" secondItem="Pl5-uS-HVb" secondAttribute="trailing" id="FCP-0e-elt"/>
+                <constraint firstItem="fiC-wd-tzv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="LpF-ep-YBX"/>
+                <constraint firstItem="fiC-wd-tzv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Xqh-82-cqy"/>
+                <constraint firstItem="Pl5-uS-HVb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="a7w-qE-1P2"/>
+                <constraint firstAttribute="trailing" secondItem="fiC-wd-tzv" secondAttribute="trailing" id="anr-ef-Ud8"/>
+                <constraint firstAttribute="bottom" secondItem="fiC-wd-tzv" secondAttribute="bottom" constant="5" id="kiS-U3-9jS"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="204" height="152"/>
+            <connections>
+                <outlet property="ImgSample" destination="fiC-wd-tzv" id="vty-6s-95s"/>
+                <outlet property="progressControl" destination="Pl5-uS-HVb" id="FEj-E2-XIb"/>
+            </connections>
+            <point key="canvasLocation" x="243.47826086956525" y="158.03571428571428"/>
+        </collectionViewCell>
+    </objects>
+</document>

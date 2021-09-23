@@ -37,6 +37,10 @@ class ForgotPassVC: UIViewController {
       }
     override func viewDidAppear(_ animated: Bool)
     {
+               Btsubmit.layer.cornerRadius = Btsubmit.frame.size.height / 2
+               Btsubmit.layer.borderColor = UIColor.clear.cgColor
+               Btsubmit.layer.borderWidth = 0.2
+        
         let paddingView13 = UIView(frame: CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 20, height: 50)))
             TfEmail.leftView = paddingView13
             TfEmail.leftViewMode = UITextField.ViewMode.always
@@ -61,17 +65,19 @@ class ForgotPassVC: UIViewController {
     @IBAction func BtSubmitTapped(_ sender: MDCButton) {
     if TfEmail.text?.isEmpty ?? false
     {
-        LbError.text = "Please enter your Email."
+        LbError.text = "Email required."
         ViEmail.layer.borderColor = UIColor.red.cgColor
         LbError.isHidden = false
     }else
     {
         guard isValidEmail(testStr: TfEmail.text ?? "") else {
-            LbError.text = "Please enter proper Email."
+            LbError.text = "Enter valid email."
             self.ViEmail.layer.borderColor = UIColor.red.cgColor
             LbError.isHidden = false
             return
         }
+         
+        ViEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
         LbError.isHidden = true
         if Connectivity.isConnectedToInternet()
         {
@@ -85,7 +91,7 @@ class ForgotPassVC: UIViewController {
     }
     func forgotpass()
     {
-        Utility.ShowLoader()
+        Utility.ShowLoader(vc: self)
         let url = Configurator.baseURL + ApiEndPoints.forgotpassword
         
         let parameters = [
@@ -93,8 +99,8 @@ class ForgotPassVC: UIViewController {
              "email":TfEmail.text ?? ""
              ] as? [String:Any]
         
-                 let manager = Alamofire.Session.default
-                 manager.session.configuration.timeoutIntervalForRequest = 20
+                 let manager = Alamofire.SessionManager.default
+                 manager.session.configuration.timeoutIntervalForRequest = 2000
 
                  manager.request(url, method: .post, parameters: parameters)
                          .responseJSON {
@@ -109,7 +115,7 @@ class ForgotPassVC: UIViewController {
                                                    guard let swiftyJsonVar = JSON(response.value!) as? JSON else {return}
                                                    
                                                      
-                                                   Utility.hideLoader()
+                                                    Utility.hideLoader(vc: self)
                                                     
                                                     if swiftyJsonVar["status"].description == "OK"
                                                     {
@@ -132,7 +138,7 @@ class ForgotPassVC: UIViewController {
                                                   
                                                   break
                              case .failure(let error):
-                                 Utility.hideLoader()
+                                Utility.hideLoader(vc: self)
                                  if error._code == NSURLErrorTimedOut {
                                      print("Request timeout!")
                                  }
@@ -151,7 +157,7 @@ extension ForgotPassVC:UITextFieldDelegate
             
            guard isValidEmail(testStr: TfEmail.text ?? "") else {
                    
-                 LbError.text = "Please enter proper Email."
+                 LbError.text = "Enter valid email."
                  self.ViEmail.layer.borderColor = UIColor.red.cgColor
                  LbError.isHidden = false
                      return false
@@ -160,6 +166,8 @@ extension ForgotPassVC:UITextFieldDelegate
             
               if Connectivity.isConnectedToInternet()
                   {
+                    ViEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
+                    LbError.isHidden = true
                     forgotpass()
                   }else
                   {
@@ -237,7 +245,7 @@ extension ForgotPassVC:UITextFieldDelegate
        private func textFieldDidBeginEditing(textField: UITextField!)
            {
           
-            ViEmail.layer.borderColor = UIColor.clear.cgColor
+            ViEmail.layer.borderColor = Appcolor.textBordercolor.cgColor
             LbError.isHidden = true
                activeField = textField
              

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BannerView" customModule="bigfantv" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="IKU-ug-ZRV"/>
+                <outlet property="pageControl" destination="MvD-ft-BWF" id="3JR-Ib-pIs"/>
+                <outlet property="pagerView" destination="v4P-5r-pX8" id="qGJ-Om-46p"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="565" height="299"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYP-mQ-rhW">
+                    <rect key="frame" x="0.0" y="44" width="565" height="221"/>
+                    <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MvD-ft-BWF" customClass="FSPageControl" customModule="bigfantv" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="247" width="565" height="18"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="OPw-lh-xc9"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v4P-5r-pX8" customClass="FSPagerView" customModule="bigfantv" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="44" width="565" height="221"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="v4P-5r-pX8" firstAttribute="leading" secondItem="nQm-JC-GFI" secondAttribute="leading" id="23d-Hu-Nru"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="trailing" secondItem="hYP-mQ-rhW" secondAttribute="trailing" id="2BG-Y1-AMj"/>
+                <constraint firstItem="hYP-mQ-rhW" firstAttribute="leading" secondItem="nQm-JC-GFI" secondAttribute="leading" id="33c-Kh-yOL"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="bottom" secondItem="MvD-ft-BWF" secondAttribute="bottom" id="DjW-my-6HZ"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="bottom" secondItem="hYP-mQ-rhW" secondAttribute="bottom" id="EhE-TO-aMn"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="trailing" secondItem="MvD-ft-BWF" secondAttribute="trailing" id="JiW-RB-8NG"/>
+                <constraint firstItem="MvD-ft-BWF" firstAttribute="leading" secondItem="nQm-JC-GFI" secondAttribute="leading" id="Raf-jF-7mo"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="trailing" secondItem="v4P-5r-pX8" secondAttribute="trailing" id="aIo-cl-TeO"/>
+                <constraint firstItem="v4P-5r-pX8" firstAttribute="top" secondItem="nQm-JC-GFI" secondAttribute="top" id="acL-FW-aby"/>
+                <constraint firstItem="nQm-JC-GFI" firstAttribute="bottom" secondItem="v4P-5r-pX8" secondAttribute="bottom" id="etS-vg-rVM"/>
+                <constraint firstItem="hYP-mQ-rhW" firstAttribute="top" secondItem="nQm-JC-GFI" secondAttribute="top" id="q63-hd-O9b"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="nQm-JC-GFI"/>
+            <point key="canvasLocation" x="110.86956521739131" y="-129.57589285714286"/>
+        </view>
+    </objects>
+</document>

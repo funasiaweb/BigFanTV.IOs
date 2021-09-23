@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-SemiBold.ttf">
+            <string>Muli-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionviewcellid" id="gTV-IL-0wX" customClass="CollectionViewCellnew" customModule="bigfantv" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="187" height="167"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="187" height="167"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kMs-Fl-ynH">
+                        <rect key="frame" x="0.0" y="0.0" width="187" height="151"/>
+                    </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clocka" translatesAutoresizingMaskIntoConstraints="NO" id="nka-ja-qW3">
+                        <rect key="frame" x="4" y="145" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="1BG-sK-3yd"/>
+                            <constraint firstAttribute="height" constant="18" id="hbF-O0-NUo"/>
+                        </constraints>
+                    </imageView>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendara" translatesAutoresizingMaskIntoConstraints="NO" id="4X4-h4-BlG">
+                        <rect key="frame" x="4" y="127" width="18" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="18" id="YmK-cC-M2d"/>
+                            <constraint firstAttribute="height" constant="18" id="zSJ-Dq-dlA"/>
+                        </constraints>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yLc-mA-MfE">
+                        <rect key="frame" x="26" y="128.5" width="24.5" height="15.5"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="12"/>
+                        <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BXb-XH-AT4">
+                        <rect key="frame" x="2" y="151" width="183" height="16"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="Muli-SemiBold" family="Muli" pointSize="12"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ku0-nS-Swx">
+                        <rect key="frame" x="161" y="4" width="22" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="9tU-P7-WZx"/>
+                            <constraint firstAttribute="width" constant="22" id="TKd-qg-blc"/>
+                        </constraints>
+                        <state key="normal" backgroundImage="like"/>
+                        <connections>
+                            <action selector="Favouritetapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Z95-XL-Gqf"/>
+                        </connections>
+                    </button>
+                </subviews>
+            </view>
+            <color key="backgroundColor" red="0.070588235289999995" green="0.086274509799999996" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="nka-ja-qW3" firstAttribute="trailing" secondItem="4X4-h4-BlG" secondAttribute="trailing" id="4dn-3L-E9w"/>
+                <constraint firstItem="BXb-XH-AT4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="85y-uf-rpk"/>
+                <constraint firstItem="BXb-XH-AT4" firstAttribute="top" secondItem="kMs-Fl-ynH" secondAttribute="bottom" id="8FY-AQ-VVv"/>
+                <constraint firstItem="nka-ja-qW3" firstAttribute="leading" secondItem="4X4-h4-BlG" secondAttribute="leading" id="Dk5-p8-4lh"/>
+                <constraint firstAttribute="bottom" secondItem="BXb-XH-AT4" secondAttribute="bottom" id="FJh-Wz-kej"/>
+                <constraint firstItem="nka-ja-qW3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="4" id="Fbh-wL-hwc"/>
+                <constraint firstItem="yLc-mA-MfE" firstAttribute="leading" secondItem="4X4-h4-BlG" secondAttribute="trailing" constant="4" id="Hc0-Cw-Gt4"/>
+                <constraint firstItem="nka-ja-qW3" firstAttribute="top" secondItem="4X4-h4-BlG" secondAttribute="bottom" id="Hh4-bl-SMA"/>
+                <constraint firstItem="yLc-mA-MfE" firstAttribute="centerY" secondItem="4X4-h4-BlG" secondAttribute="centerY" id="O4b-FY-OnO"/>
+                <constraint firstAttribute="trailing" secondItem="Ku0-nS-Swx" secondAttribute="trailing" constant="4" id="Yeh-Ne-b3l"/>
+                <constraint firstAttribute="trailing" secondItem="BXb-XH-AT4" secondAttribute="trailing" constant="2" id="d4F-Qp-uzx"/>
+                <constraint firstAttribute="trailing" secondItem="kMs-Fl-ynH" secondAttribute="trailing" id="dSD-iT-B9I"/>
+                <constraint firstItem="kMs-Fl-ynH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="i20-yt-F2Z"/>
+                <constraint firstItem="kMs-Fl-ynH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="k5w-o2-Fxc"/>
+                <constraint firstItem="Ku0-nS-Swx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="4" id="kQm-iX-NhE"/>
+                <constraint firstAttribute="bottom" secondItem="nka-ja-qW3" secondAttribute="bottom" constant="4" id="r2h-hd-MCZ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="187" height="167"/>
+            <connections>
+                <outlet property="BtFav" destination="Ku0-nS-Swx" id="WbJ-Xu-c5c"/>
+                <outlet property="Imageview" destination="kMs-Fl-ynH" id="Jac-tm-O2j"/>
+                <outlet property="LbDate" destination="BXb-XH-AT4" id="Vot-S1-roS"/>
+                <outlet property="LbTime" destination="yLc-mA-MfE" id="UgG-3f-5fH"/>
+            </connections>
+            <point key="canvasLocation" x="84.782608695652186" y="27.790178571428569"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="calendara" width="144" height="144"/>
+        <image name="clocka" width="96" height="96"/>
+        <image name="like" width="64" height="64"/>
+    </resources>
+</document>

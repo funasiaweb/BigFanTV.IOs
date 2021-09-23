@@ -1,0 +1,169 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target x86_64-apple-ios11.2-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MuviAudioPlayer
+import AVFoundation
+import AVKit
+import Foundation
+import MediaPlayer
+@_exported import MuviAudioPlayer
+import Swift
+import UIKit
+public class MuviAudioPlayerItemInfo : Swift.Equatable {
+  public var id: Swift.String?
+  public var url: Foundation.URL?
+  public var title: Swift.String?
+  public var albumTitle: Swift.String?
+  public var coverImage: UIKit.UIImage?
+  public var isFavourite: Swift.Bool?
+  public var customInformation: Swift.Dictionary<Swift.String, Any>?
+  public init(id: Swift.String, url: Foundation.URL, title: Swift.String, albumTitle: Swift.String, coverImageURL: Foundation.URL?, startAt: Foundation.TimeInterval = 0, customInformation: Swift.Dictionary<Swift.String, Any> = Dictionary())
+  public static func == (lhs: MuviAudioPlayer.MuviAudioPlayerItemInfo, rhs: MuviAudioPlayer.MuviAudioPlayerItemInfo) -> Swift.Bool
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers final public class MuviAudioPlayerManager : ObjectiveC.NSObject {
+  public static let shared: MuviAudioPlayer.MuviAudioPlayerManager
+  final public var playbackDelegate: MuviAudioPlayer.MuviAudioPlayerDelegate?
+  final public var favouriteDelegate: MuviAudioPlayer.MuviAudioPlayerFavouriteDelegate?
+  final public var queueDelegate: MuviAudioPlayer.MuviAudioPlayerQueueDelegate?
+  final public var muviAudioMiniView: MuviAudioPlayer.MuviAudioMiniView?
+  final public var settings: MuviAudioPlayer.MuviAudioExpandedControllerSettings
+  public static var authorizationToken: Swift.String
+  final public var playerStatus: MuviAudioPlayer.MuviAudioPlayerStatus {
+    get
+  }
+  final public var isPlaying: Swift.Bool {
+    get
+  }
+  final public var currentItemInfo: MuviAudioPlayer.MuviAudioPlayerItemInfo! {
+    get
+  }
+  final public var currentItemIndex: Swift.Int {
+    get
+  }
+  final public var currentTime: Foundation.TimeInterval {
+    get
+  }
+  final public var currentTimeString: Swift.String {
+    get
+  }
+  final public var duration: Foundation.TimeInterval {
+    get
+  }
+  final public var durationString: Swift.String {
+    get
+  }
+  final public var timeRemaining: Foundation.TimeInterval {
+    get
+  }
+  final public var timeRemainingString: Swift.String {
+    get
+  }
+  final public var percentage: Swift.Double {
+    get
+  }
+  @objc override dynamic public init()
+  @objc deinit
+  final public func clear()
+  final public func setup(with items: [MuviAudioPlayer.MuviAudioPlayerItemInfo], playAfterSetup: Swift.Bool = true)
+  @objc override final public func observeValue(forKeyPath keyPath: Swift.String?, of object: Any?, change: [Foundation.NSKeyValueChangeKey : Any]?, context: Swift.UnsafeMutableRawPointer?)
+  final public func add(track: MuviAudioPlayer.MuviAudioPlayerItemInfo)
+}
+extension MuviAudioPlayerManager {
+  final public func play()
+  final public func pause()
+  final public func seek(toPercent: Swift.Double)
+  final public func seek(toTime: Foundation.TimeInterval)
+  final public func next()
+  final public var canNext: Swift.Bool {
+    get
+  }
+  final public var canPrevious: Swift.Bool {
+    get
+  }
+  final public func previous()
+  final public func updateFavouriteButton()
+}
+public enum MuviPlayerError : Swift.Error {
+  case authenticationFailure(code: Swift.Int, message: Swift.String)
+}
+public enum SliderThumbShape {
+  case circle, rectangle
+  public static func == (a: MuviAudioPlayer.SliderThumbShape, b: MuviAudioPlayer.SliderThumbShape) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public protocol MuviAudioPlayerQueueDelegate {
+  func willClearQueue(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager)
+  func didClearQueue(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager)
+}
+extension MuviAudioPlayerQueueDelegate {
+  public func willClearQueue(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager)
+  public func didClearQueue(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager)
+}
+public protocol MuviAudioPlayerFavouriteDelegate {
+  func favouriteButtonAction(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, currentMedia: MuviAudioPlayer.MuviAudioPlayerItemInfo)
+}
+extension MuviAudioPlayerFavouriteDelegate {
+  public func favouriteButtonAction(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, currentMedia: MuviAudioPlayer.MuviAudioPlayerItemInfo)
+}
+public protocol MuviAudioPlayerDelegate {
+  func muviAudioPlayerAuthentication(code: Swift.Int, message: Swift.String)
+  func muviAudioPlayerManager(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, progressDidUpdate percentage: Swift.Double)
+  func muviAudioPlayerManager(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, itemDidChange itemIndex: Swift.Int)
+  func muviAudioPlayerManager(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, statusDidChange status: MuviAudioPlayer.MuviAudioPlayerStatus)
+  func getCoverImage(_ player: MuviAudioPlayer.MuviAudioPlayerManager, _ callBack: @escaping (UIKit.UIImage?) -> Swift.Void)
+  func playbackCompleted(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, notification: Foundation.Notification)
+}
+extension MuviAudioPlayerDelegate {
+  public func playbackCompleted(_ playerManager: MuviAudioPlayer.MuviAudioPlayerManager, notification: Foundation.Notification)
+  public func muviAudioPlayerAuthentication(code: Swift.Int, message: Swift.String)
+}
+@objc @_hasMissingDesignatedInitializers open class MuviAudioPlayerItem : AVFoundation.AVPlayerItem {
+  @available(iOS 7.0, *)
+  @objc override dynamic public init(asset: AVFoundation.AVAsset, automaticallyLoadedAssetKeys: [Swift.String]?)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class MuviAudioExpandedControllerSettings {
+  public var audioTitleLabelFont: UIKit.UIFont
+  public var audioTitleLabelTextColor: UIKit.UIColor
+  public var audioTitleLabelBackgroundColor: UIKit.UIColor
+  public var audioSubtitleLabelFont: UIKit.UIFont
+  public var audioSubtitleLabelTextColor: UIKit.UIColor
+  public var audioSubtitleLabelBackgroundColor: UIKit.UIColor
+  public var isFavouriteFeatureRequired: Swift.Bool
+  public var expandedControllerTitle: Swift.String
+  public var expandedControllerSubTitle: Swift.String
+  @objc deinit
+}
+public enum MuviAudioPlayerStatus : Swift.Int {
+  case none
+  case loading
+  case failed
+  case readyToPlay
+  case playing
+  case paused
+  case playerDidEnd
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@objc @_inheritsConvenienceInitializers @IBDesignable open class MuviAudioMiniView : UIKit.UIView {
+  @objc @IBInspectable @IBOutlet weak public var playPauseButton: UIKit.UIButton!
+  @objc @IBInspectable @IBOutlet weak public var audioTitleLabel: UIKit.UILabel!
+  @objc @IBInspectable @IBOutlet weak public var audioSubTitleLabel: UIKit.UILabel!
+  @objc @IBInspectable @IBOutlet weak public var albumImage: UIKit.UIImageView!
+  @objc @IBInspectable @IBOutlet weak public var progressBar: UIKit.UIProgressView!
+  @objc @IBInspectable @IBOutlet public var mainView: UIKit.UIView!
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+extension MuviAudioPlayer.SliderThumbShape : Swift.Equatable {}
+extension MuviAudioPlayer.SliderThumbShape : Swift.Hashable {}
+extension MuviAudioPlayer.MuviAudioPlayerStatus : Swift.Equatable {}
+extension MuviAudioPlayer.MuviAudioPlayerStatus : Swift.Hashable {}
+extension MuviAudioPlayer.MuviAudioPlayerStatus : Swift.RawRepresentable {}

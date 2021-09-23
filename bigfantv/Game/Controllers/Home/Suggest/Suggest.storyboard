@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RJn-of-mdy">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15509"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Muli-Bold.ttf">
+            <string>Muli-Bold</string>
+        </array>
+        <array key="Muli-VariableFont_wght.ttf">
+            <string>Muli-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Suggest View Controller-->
+        <scene sceneID="AGY-KR-0k2">
+            <objects>
+                <viewController storyboardIdentifier="Suggest" id="RJn-of-mdy" customClass="SuggestViewController" customModule="bigfantv" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8hQ-44-Yfq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="question" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rTy-qJ-7V6" customClass="PaddingTextView" customModule="bigfantv" customModuleProvider="target">
+                                <rect key="frame" x="32" y="16" width="311" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="AJd-1F-UBr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-Bold" family="Muli" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQg-FE-0V2" userLabel="Submit" customClass="RoundedButton" customModule="bigfantv" customModuleProvider="target">
+                                <rect key="frame" x="32" y="617" width="311" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="0Ns-Lt-YEe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Muli-Regular" family="Muli" pointSize="17"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonTap:" destination="RJn-of-mdy" eventType="touchUpInside" id="xud-yV-era"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oh1-4M-gNr">
+                                <rect key="frame" x="32" y="132" width="311" height="469"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rTy-qJ-7V6" firstAttribute="top" secondItem="vaC-OA-tTf" secondAttribute="top" constant="16" id="5Gd-9V-LdM"/>
+                            <constraint firstItem="HQg-FE-0V2" firstAttribute="top" secondItem="oh1-4M-gNr" secondAttribute="bottom" constant="16" id="7Ne-SH-kt4"/>
+                            <constraint firstItem="rTy-qJ-7V6" firstAttribute="leading" secondItem="vaC-OA-tTf" secondAttribute="leading" constant="32" id="Bba-gi-GQ9"/>
+                            <constraint firstItem="vaC-OA-tTf" firstAttribute="trailing" secondItem="HQg-FE-0V2" secondAttribute="trailing" constant="32" id="Ev0-21-n3s"/>
+                            <constraint firstItem="vaC-OA-tTf" firstAttribute="trailing" secondItem="rTy-qJ-7V6" secondAttribute="trailing" constant="32" id="Eyt-ms-gZP"/>
+                            <constraint firstItem="vaC-OA-tTf" firstAttribute="bottom" secondItem="HQg-FE-0V2" secondAttribute="bottom" id="QA2-VA-56I"/>
+                            <constraint firstItem="oh1-4M-gNr" firstAttribute="top" secondItem="rTy-qJ-7V6" secondAttribute="bottom" constant="16" id="VTI-8X-RZy"/>
+                            <constraint firstItem="vaC-OA-tTf" firstAttribute="trailing" secondItem="oh1-4M-gNr" secondAttribute="trailing" constant="32" id="eES-3C-9Ze"/>
+                            <constraint firstItem="HQg-FE-0V2" firstAttribute="leading" secondItem="vaC-OA-tTf" secondAttribute="leading" constant="32" id="nWz-oP-Fs8"/>
+                            <constraint firstItem="oh1-4M-gNr" firstAttribute="leading" secondItem="vaC-OA-tTf" secondAttribute="leading" constant="32" id="yA9-fK-P3D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vaC-OA-tTf"/>
+                    </view>
+                    <connections>
+                        <outlet property="answerFields" destination="oh1-4M-gNr" id="48O-Ym-W7X"/>
+                        <outlet property="questionField" destination="rTy-qJ-7V6" id="Byt-tv-zNw"/>
+                        <outlet property="submitButton" destination="HQg-FE-0V2" id="kC1-EO-7yc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vd6-Fi-8cj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3263" y="364"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,2265 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3.2 (swiftlang-1200.0.45 clang-1200.0.32.28)
+// swift-module-flags: -target arm64-apple-ios10.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name MuviSDK
+import Foundation
+@_exported import MuviSDK
+import Swift
+import UIKit
+open class WatchHistoryInput {
+  open var userId: Swift.String
+  open var offset: Swift.String
+  open var limit: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct MonetizationDetailsOutput : Swift.Codable {
+  public var movieId: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var streamId: Swift.String?
+  public var monetizations: MuviSDK.MonetizationData?
+  public var monetizationPlans: MuviSDK.MonetizationPlans?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MonetizationData : Swift.Codable {
+  public var subscriptionBundles: Swift.String?
+  public var ppv: Swift.String?
+  public var voucher: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MonetizationPlans : Swift.Codable {
+  public var ppv: Swift.Int?
+  public var pre_order: Swift.Int?
+  public var voucher: Swift.Int?
+  public var ppvBundle: Swift.Int?
+  public var subscriptionBundles: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct RemoveDeviceOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct FooterMenu : Swift.Codable {
+  public var id: Swift.String?
+  public var url: Swift.String?
+  public var displayName: Swift.String?
+  public var permalink: Swift.String?
+  public var linkType: Swift.String?
+  public var domain: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ContactUsInput {
+  open var email: Swift.String
+  open var message: Swift.String
+  open var name: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(email: Swift.String, message: Swift.String, name: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct GetVideoDetailsOutput : Swift.Decodable {
+  public var studioApprovedUrl: Swift.String?
+  public var licenseUrl: Swift.String?
+  public var videoResolution: Swift.String?
+  public var videoUrl: Swift.String?
+  public var hlsUrl: Swift.String?
+  public var streamingRestriction: Swift.Int?
+  public var downloadStatus: Swift.Int?
+  public var isFree: Swift.Int?
+  public var isOffline: Swift.Int?
+  public var playedLength: Swift.String?
+  public var purchaseStatus: Swift.Int?
+  public var videoDetails: [MuviSDK.Resolution]?
+  public var subTitle: [MuviSDK.Subtitle]?
+  public var isWatermark: MuviSDK.IsWatermark?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Subtitle : Swift.Codable {
+  public var url: Swift.String?
+  public var subtitleId: Swift.String?
+  public var languageSubtitleId: Swift.String?
+  public var code: Swift.String?
+  public var language: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct IsWatermark : Swift.Codable {
+  public var status: Swift.Int?
+  public var email: Swift.String?
+  public var ip: Swift.String?
+  public var date: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct StudioPlanListOutput : Swift.Codable {
+  public var name: Swift.String?
+  public var id: Swift.String?
+  public var uniqueId: Swift.String?
+  public var recurrence: Swift.String?
+  public var shortDesc: Swift.String?
+  public var price: Swift.String?
+  public var createdDate: Swift.String?
+  public var currency: MuviSDK.Currency?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Currency : Swift.Codable {
+  public var id: Swift.String?
+  public var countryCode: Swift.String?
+  public var code: Swift.String?
+  public var title: Swift.String?
+  public var symbol: Swift.String?
+  public var isoNum: Swift.String?
+  public var isZeroDecimal: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum MSError : Swift.Error {
+  case apiError(code: Swift.Int, message: Swift.String)
+  case invalidResponseError(code: Swift.Int, message: Swift.String)
+  case authenticationError(code: Swift.Int, message: Swift.String)
+  case decodingError(code: Swift.Int, message: Swift.String)
+}
+extension MSError {
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorDescription: Swift.String {
+    get
+  }
+}
+public struct StaticPageDetailsOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var title: Swift.String?
+  public var content: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SubCategoryListOutput : Swift.Codable {
+  public var subcategoryId: Swift.String?
+  public var subcatName: Swift.String?
+  public var permalink: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SubCategoryListOutputModel : Swift.Codable {
+  public var status: Swift.String?
+  public var subCategoryList: [MuviSDK.SubCategoryListOutput]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AddGuestUserInput {
+  open var name: Swift.String
+  open var email: Swift.String
+  open var languageCode: Swift.String
+  public init(email: Swift.String, name: Swift.String)
+  public init()
+  @objc deinit
+}
+open class CastDetailsInput {
+  open var userId: Swift.String
+  open var parmalink: Swift.String
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var genre: Swift.String
+  open var deviceType: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(parmalink: Swift.String)
+  public init()
+  @objc deinit
+}
+open class AppHomePageInput {
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(languageCode: Swift.String, country: Swift.String)
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct LoginOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var email: Swift.String?
+  public var displayName: Swift.String?
+  public var nickName: Swift.String?
+  public var isFree: Swift.String?
+  public var isBroadcaster: Swift.String?
+  public var isASubuser: Swift.String?
+  public var profileImage: Swift.String?
+  public var studioId: Swift.String?
+  public var isSubscribed: Swift.Int?
+  public var loginHistoryId: Swift.String?
+  public var isNewuser: Swift.Int?
+  public var languageList: Swift.Dictionary<Swift.String, Swift.String>?
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var mobileNumber: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct AddGuestUserOutput : Swift.Codable {
+  public var userId: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class GetInvoicePDFInput {
+  open var userId: Swift.String
+  open var id: Swift.String
+  open var deviceType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(id: Swift.String, userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct PurchaseHistoryOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var invoiceId: Swift.String?
+  public var ppvSubscriptionId: Swift.String?
+  public var amount: Swift.String?
+  public var transactionStatus: Swift.String?
+  public var transactionDate: Swift.String?
+  public var transactionFor: Swift.String?
+  public var currencySymbol: Swift.String?
+  public var currencyCode: Swift.String?
+  public var movieName: Swift.String?
+  public var expiryDateppv: Swift.String?
+  public var statusppv: Swift.String?
+  public var ContentType: Swift.String?
+  public var planName: Swift.String?
+  public var planDuration: Swift.String?
+  public var posterUrl: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ReadAllNotificationOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DeleteInvoicePathOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class CreatePlaylistInput {
+  open var userId: Swift.String
+  open var playlistName: Swift.String
+  open var isEpisode: Swift.String
+  open var isContent: Swift.String
+  public init(userId: Swift.String, playlistName: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct SearchDataOutput : Swift.Codable {
+  public var movieStreamUniqId: Swift.String?
+  public var movieId: Swift.String?
+  public var movieStreamId: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var contentTypeId: Swift.String?
+  public var permalink: Swift.String?
+  public var ppvPlanId: Swift.String?
+  public var name: Swift.String?
+  public var fullMovie: Swift.String?
+  public var story: Swift.String?
+  public var genre: Swift.String?
+  public var releaseDate: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var isConverted: Swift.String?
+  public var posterUrl: Swift.String?
+  public var isPpv: Swift.Int?
+  public var videoDuration: Swift.String?
+  public var viewStatus: Swift.String?
+  public var isEpisode: Swift.String?
+  public var videoUrl: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DeletePlaylistOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var total: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct TrailerDetailsOutput : Swift.Decodable {
+  public var trailerUrl: Swift.String?
+  public var thirdPartyUrl: Swift.String?
+  public var studioApprovedUrl: Swift.String?
+  public var trailerResolution: Swift.String?
+  public var licenseUrl: Swift.String?
+  public var videoResolution: [MuviSDK.Resolution]?
+  public var subtitleStatus: Swift.Int?
+  public var subTitle: [MuviSDK.Subtitle]?
+  public var userSubtitlePreference: Swift.Dictionary<Swift.String, Swift.String>?
+  public init(from decoder: Swift.Decoder) throws
+}
+@_hasMissingDesignatedInitializers open class GenerateOTPInput {
+  open var languageCode: Swift.String
+  @objc deinit
+}
+open class PurchaseHistoryInput {
+  open var userId: Swift.String
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class FbUserStatusInput {
+  open var fbUserid: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(fbUserid: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct GetUserProfileOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var displayName: Swift.String?
+  public var email: Swift.String?
+  public var profileImage: Swift.String?
+  public var studioId: Swift.String?
+  public var mobileNumber: Swift.String?
+  public var mobileCountryCode: Swift.String?
+  public var country: Swift.String?
+  public var language: Swift.String?
+  public var isSubscribed: Swift.Int?
+  public var isFree: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AddToPlaylistInput {
+  open var userId: Swift.String
+  open var playlistId: Swift.String
+  open var contentId: Swift.String
+  open var isEpisode: Swift.String
+  open var isContent: Swift.String
+  public init(userId: Swift.String, playlistId: Swift.String, contentId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class DeleteFavouriteInput {
+  open var userId: Swift.String
+  open var movieUniqId: Swift.String
+  open var contentType: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieUniqId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ValidateCouponOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var message: Swift.String?
+  public var discountType: Swift.String?
+  public var discount: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CastDetailsOutput : Swift.Codable {
+  public var name: Swift.String?
+  public var id: Swift.String?
+  public var summary: Swift.String?
+  public var castImage: Swift.String?
+  public var movieList: [MuviSDK.MovieListModel]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MovieListModel : Swift.Codable {
+  public var muviUniqId: Swift.String?
+  public var movieId: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var genre: Swift.String?
+  public var isConverted: Swift.String?
+  public var isEpisode: Swift.Int?
+  public var name: Swift.String?
+  public var permalink: Swift.String?
+  public var posterUrl: Swift.String?
+  public var story: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct RelatedContentOutput : Swift.Codable {
+  public var movieId: Swift.String?
+  public var isEpisode: Swift.String?
+  public var title: Swift.String?
+  public var parentContentTitle: Swift.String?
+  public var contentTitle: Swift.String?
+  public var permalink: Swift.String?
+  public var movieUniqId: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var story: Swift.String?
+  public var genres: [Swift.String]?
+  public var movieStreamUniqId: Swift.String?
+  public var movieStreamId: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct IPAddressOutput : Swift.Codable {
+  public var ip: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class LanguageListInput {
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(languageCode: Swift.String, country: Swift.String)
+  public init()
+  @objc deinit
+}
+open class PlayListNameEditInput {
+  open var userId: Swift.String
+  open var playlistId: Swift.String
+  open var playlistName: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, playlistId: Swift.String, playlistName: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AddToPlaylistOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var total: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PostBlogCommentOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CategoryListOutput : Swift.Codable {
+  public var categoryId: Swift.String?
+  public var categoryName: Swift.String?
+  public var permalink: Swift.String?
+  public var categoryImgUrl: Swift.String?
+  public var catImgSize: [Swift.String]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CategoryListOutputModel : Swift.Codable {
+  public var status: Swift.String?
+  public var categoryList: [MuviSDK.CategoryListOutput]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ContactUsOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AssignBroadCastToContentInput {
+  open var contentName: Swift.String
+  open var categoryId: Swift.String
+  open var userId: Swift.String
+  open var description: Swift.String
+  open var uploadedContentType: Swift.String
+  open var posterImage: UIKit.UIImage?
+  open var bannerImage: UIKit.UIImage?
+  open var deviceType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, contentName: Swift.String, categoryId: Swift.String, uploadedContentType: Swift.String)
+  public init()
+  @objc deinit
+}
+open class MyUploadsInput {
+  open var categoryId: Swift.String
+  open var userId: Swift.String
+  open var uploadedContentType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, categoryId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class ContentListInput {
+  open var permalink: Swift.String
+  open var userId: Swift.String
+  open var isPublishDate: Swift.String
+  open var orderby: Swift.String
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var genre: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(permalink: Swift.String)
+  public init()
+  @objc deinit
+}
+open class TransactionInput {
+  open var userId: Swift.String
+  open var id: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, id: Swift.String)
+  public init()
+  @objc deinit
+}
+open class UpdateGoogleIdInput {
+  open var userId: Swift.String
+  open var googleId: Swift.String
+  open var deviceId: Swift.String
+  public init(userId: Swift.String, googleId: Swift.String, deviceId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AppHomeFeatureOutput : Swift.Codable {
+  public var bannerSectionList: [MuviSDK.BannerSection]?
+  public var bannerText: Swift.String?
+  public var isFeatured: Swift.Int?
+  public var sectionCount: Swift.Int?
+  public var sectionName: [MuviSDK.SectionName]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct BannerSection : Swift.Codable {
+  public var imagePath: Swift.String?
+  public var bannerUrl: Swift.String?
+  public var bannerPermalink: Swift.String?
+  public var bannerType: Swift.String?
+  public var otherSubType: Swift.String?
+  public var webLink: Swift.String?
+  public var bannerText: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var title: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct SectionName : Swift.Codable {
+  public var title: Swift.String?
+  public var sectionId: Swift.String?
+  public var sectionType: Swift.String?
+  public var total: Swift.String?
+  public var data: [MuviSDK.ContentData]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ContentData : Swift.Codable {
+  public var permalink: Swift.String?
+  public var name: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var posterUrl: Swift.String?
+  public var isEpisode: Swift.String?
+  public var movieStreamUniqId: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var isConverted: Swift.String?
+  public var isMediaPublished: Swift.Int?
+  public var seasonNo: Swift.String?
+  public var totalSeason: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ContentAuthorizationOutput : Swift.Codable {
+  public var stringCode: Swift.Int?
+  public var status: Swift.String?
+  public var msg: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class GetVideoDetailsInput {
+  open var contentUniqId: Swift.String
+  open var streamUniqId: Swift.String
+  open var internetSpeed: Swift.String
+  open var userId: Swift.String
+  open var licenseType: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(contentUniqId: Swift.String, streamUniqId: Swift.String, userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class AudioUserPlayListDetailInput {
+  open var userId: Swift.String
+  open var listId: Swift.String
+  public init(userId: Swift.String, listId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class FacebookSigninInput {
+  open var email: Swift.String
+  open var fbUserid: Swift.String
+  open var name: Swift.String
+  open var deviceId: Swift.String
+  open var deviceType: Swift.String
+  open var profileImage: Swift.String
+  public init(email: Swift.String, name: Swift.String, fbUserid: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ContentDetailsOutput : Swift.Codable {
+  public var name: Swift.String?
+  public var fullMovie: Swift.String?
+  public var videoResolution: Swift.String?
+  public var permalink: Swift.String?
+  public var genre: Swift.String?
+  public var releaseDate: Swift.String?
+  public var censorRating: Swift.String?
+  public var story: Swift.String?
+  public var videoDuration: Swift.String?
+  public var actor: Swift.String?
+  public var director: Swift.String?
+  public var castDetail: [Swift.Dictionary<Swift.String, Swift.String>]
+  public var trailerUrl: Swift.String?
+  public var movieUrlForTv: Swift.String?
+  public var movieUrl: Swift.String?
+  public var banner: Swift.String?
+  public var poster: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var isPPV: Swift.Bool?
+  public var muviUniqId: Swift.String?
+  public var isFreeContent: Swift.Int?
+  public var movieStreamUniqId: Swift.String?
+  public var isEpisode: Swift.String?
+  public var rating: Swift.String?
+  public var review: Swift.String?
+  public var id: Swift.String?
+  public var seasons: [Swift.String]?
+  public var trailerStatus: Swift.Int?
+  public var isConverted: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class MonetizationDetailsInput {
+  open var userId: Swift.String
+  open var movieId: Swift.String
+  open var streamId: Swift.String
+  open var purchaseType: Swift.String
+  open var isGuestuser: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct MyLibraryOutput : Swift.Codable {
+  public var movieId: Swift.String?
+  public var story: Swift.String?
+  public var posterUrl: Swift.String?
+  public var isConverted: Swift.Int?
+  public var isFreeContent: Swift.Int?
+  public var contentTypesId: Swift.String?
+  public var name: Swift.String?
+  public var permalink: Swift.String?
+  public var releaseDate: Swift.String?
+  public var isEpisode: Swift.String?
+  public var movieStreamUniqId: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var seasonId: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MainMenuItems : Swift.Codable {
+  public var id: Swift.Int?
+  public var permalink: Swift.String?
+  public var linkType: Swift.String?
+  public var title: Swift.String?
+  public var parentId: Swift.Int?
+  public var child: [MuviSDK.ChildMenu]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct IsCouponExistsOutput : Swift.Codable {
+  public var isCouponEnabled: Swift.Int?
+  public var isCouponExistsForSubscription: Swift.Int?
+  public var isCouponExistsForOneTimeMonetization: Swift.Int?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class RemoveDeviceInput {
+  open var userId: Swift.String
+  open var device: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, device: Swift.String)
+  public init()
+  @objc deinit
+}
+open class ViewContentRatingInput {
+  open var contentId: Swift.String
+  open var userId: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, contentId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class VideoLogNewInput {
+  open var movieId: Swift.String
+  open var ipAddress: Swift.String
+  open var userId: Swift.String
+  open var deviceType: Swift.String
+  open var episodeId: Swift.String
+  open var seasonId: Swift.String
+  open var playedLength: Swift.String
+  open var contentType: Swift.String
+  open var isStreamingRestriction: Swift.String
+  open var restrictStreamId: Swift.String
+  open var isActiveStreamClosed: Swift.String
+  open var trailerType: Swift.String
+  open var logId: Swift.String
+  open var logTempId: Swift.String
+  open var watchStatus: Swift.String
+  open var resumeTime: Swift.String
+  open var enableWatchDuration: Swift.String
+  open var mediaType: Swift.String
+  public init(userId: Swift.String, movieId: Swift.String, ipAddress: Swift.String)
+  public init()
+  @objc deinit
+}
+open class VoucherSubscriptionInput {
+  open var movieId: Swift.String
+  open var userId: Swift.String
+  open var voucherCode: Swift.String
+  open var streamId: Swift.String
+  open var season: Swift.String
+  open var purchaseType: Swift.String
+  open var isPreorder: Swift.String
+  open var isGuestuser: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieId: Swift.String, voucherCode: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ContentListOutput : Swift.Codable {
+  public var movieId: Swift.String?
+  public var story: Swift.String?
+  public var posterUrl: Swift.String?
+  public var isAPV: Swift.Int?
+  public var isPPV: Swift.Int?
+  public var isConverted: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var name: Swift.String?
+  public var permalink: Swift.String?
+  public var releaseDate: Swift.String?
+  public var genre: [Swift.String?]
+  public var isEpisode: Swift.Int?
+  public var movieStreamUniqId: Swift.String?
+  public var itemCount: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ManageDevicesInput {
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class RegistrationInput {
+  open var email: Swift.String
+  open var password: Swift.String
+  open var name: Swift.String
+  open var nickName: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  open var deviceId: Swift.String
+  open var googleId: Swift.String
+  open var deviceType: Swift.String
+  open var mobileNumber: Swift.String
+  open var mobileCountryCode: Swift.String
+  open var otp: Swift.String
+  public init(email: Swift.String, password: Swift.String, name: Swift.String, mobileNumber: Swift.String, mobileCountryCode: Swift.String, otp: Swift.String)
+  public init()
+  @objc deinit
+}
+open class RegisterUserPaymentInput {
+  open var cardLastFourdigit: Swift.String
+  open var cardName: Swift.String
+  open var cardNumber: Swift.String
+  open var cardType: Swift.String
+  open var couponCode: Swift.String
+  open var currencyId: Swift.String
+  open var cvv: Swift.String
+  open var email: Swift.String
+  open var episodeId: Swift.String
+  open var expMonth: Swift.String
+  open var expYear: Swift.String
+  open var isAdvance: Swift.String
+  open var isSaveThisCard: Swift.String
+  open var movieId: Swift.String
+  open var name: Swift.String
+  open var planId: Swift.String
+  open var profileId: Swift.String
+  open var seasonId: Swift.String
+  open var token: Swift.String
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AddContentRatingOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class DeleteInvoicePathInput {
+  open var filePath: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(filePath: Swift.String)
+  public init()
+  @objc deinit
+}
+open class GoogleSigninInput {
+  open var email: Swift.String
+  open var name: Swift.String
+  open var profileImage: Swift.String
+  open var deviceType: Swift.String
+  open var gPlusUserId: Swift.String
+  public init(email: Swift.String, name: Swift.String, gPlusUserId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class CategoryListInput {
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(languageCode: Swift.String)
+  public init()
+  @objc deinit
+}
+open class CancelSubscriptionPlanInput {
+  open var userId: Swift.String
+  open var planId: Swift.String
+  open var cancelNote: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, planId: Swift.String, cancelNote: Swift.String)
+  public init()
+  @objc deinit
+}
+open class UpdateContentInput {
+  open var userId: Swift.String
+  open var categoryId: Swift.String
+  open var description: Swift.String
+  open var contentName: Swift.String
+  open var movieStreamUniqId: Swift.String
+  open var uploadContentType: Swift.String
+  open var posterImage: UIKit.UIImage?
+  open var bannerImage: UIKit.UIImage?
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieStreamUniqId: Swift.String, categoryId: Swift.String, contentName: Swift.String, description: Swift.String, uploadContentType: Swift.String)
+  public init()
+  @objc deinit
+}
+open class LogoutInput {
+  open var loginHistoryId: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(loginHistoryId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct GetFollowListOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var uniqueId: Swift.String?
+  public var followType: Swift.String?
+  public var title: Swift.String?
+  public var poster: Swift.String?
+  public var noOfFollowings: Swift.Int?
+  public var isFollowed: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class GetBlogDetailsInput {
+  open var permalink: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(permalink: Swift.String)
+  public init()
+  @objc deinit
+}
+open class TrailerDetailsInput {
+  open var muviUniqId: Swift.String
+  open var userId: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, muviUniqId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AudioAllUserPlayListOutput : Swift.Codable {
+  public var userplaylist: [MuviSDK.PlayList]?
+  public var totaluserlistcount: Swift.Int?
+  public var adminplaylist: [MuviSDK.PlayList]?
+  public var totaladminlistcount: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct PlayList : Swift.Codable {
+  public var listId: Swift.String?
+  public var listName: Swift.String?
+  public var contentCategory: Swift.String?
+  public var posterPlaylist: Swift.String?
+  public var totalContent: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct WatchHistoryOutput : Swift.Codable {
+  public var movieStreamUniqId: Swift.String?
+  public var movieId: Swift.String?
+  public var movieStreamId: Swift.String?
+  public var permalink: Swift.String?
+  public var ppvPlanId: Swift.String?
+  public var name: Swift.String?
+  public var fullMovie: Swift.String?
+  public var story: Swift.String?
+  public var genre: [Swift.String]?
+  public var releaseDate: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var isConverted: Swift.String?
+  public var poster: Swift.String?
+  public var seasonlist: [Swift.String]?
+  public var videoDuration: Swift.String?
+  public var isEpisode: Swift.String?
+  public var seasonNumber: Swift.Int?
+  public var censorRating: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DeleteFavouriteOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct RegistrationOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var email: Swift.String?
+  public var display_name: Swift.String?
+  public var nickName: Swift.String?
+  public var isFree: Swift.String?
+  public var isBroadcaster: Swift.String?
+  public var isASubuser: Swift.String?
+  public var profileImage: Swift.String?
+  public var studioId: Swift.String?
+  public var isSubscribed: Swift.Int?
+  public var loginHistoryId: Swift.String?
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var mobileNumber: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class MyPlansInput {
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class EpisodeDetailsInput {
+  open var permalink: Swift.String
+  open var userId: Swift.String
+  open var deviceType: Swift.String
+  open var offset: Swift.String
+  open var limit: Swift.String
+  open var seriesNumber: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(permalink: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct UnreadNotificationOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var count: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct LanguageListOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var langList: [MuviSDK.Language]?
+  public var defaultLang: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Language : Swift.Codable {
+  public var code: Swift.String?
+  public var language: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class StaticPageDetailsInput {
+  open var langCode: Swift.String
+  open var permalink: Swift.String
+  public init(permalink: Swift.String)
+  public init()
+  @objc deinit
+}
+open class ValidateVoucherInput {
+  open var movieId: Swift.String
+  open var userId: Swift.String
+  open var streamId: Swift.String
+  open var season: Swift.String
+  open var purchaseType: Swift.String
+  open var voucherCode: Swift.String
+  open var iSGuestUser: Swift.String
+  open var country: Swift.String?
+  open var languageCode: Swift.String?
+  public init(userId: Swift.String, streamId: Swift.String, movieId: Swift.String, season: Swift.String, purchaseType: Swift.String, voucherCode: Swift.String)
+  public init()
+  @objc deinit
+}
+open class AppFeatureContentInput {
+  open var userId: Swift.String
+  open var sectionId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  open var platform: Swift.String
+  public init(userId: Swift.String, sectionId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AuthUserPaymentInfoOutput : Swift.Codable {
+  public var isSuccess: Swift.Int?
+  public var status: Swift.String?
+  public var profileId: Swift.String?
+  public var cardType: Swift.String?
+  public var cardLastFourdigit: Swift.String?
+  public var token: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct GetBlogListOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var total: Swift.String?
+  public var data: [MuviSDK.GetBlogDetailsData]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct TransactionOutput : Swift.Codable {
+  public var orderNumber: Swift.String?
+  public var movieId: Swift.String?
+  public var transactionDate: Swift.String?
+  public var transactionStatus: Swift.String?
+  public var planName: Swift.String?
+  public var currencySymbol: Swift.String?
+  public var currencyCode: Swift.String?
+  public var amount: Swift.String?
+  public var invoiceId: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ContentDetailsInput {
+  open var userId: Swift.String
+  open var permalink: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(permalink: Swift.String, userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class EpisodeWatchHistoryInput {
+  open var userId: Swift.String
+  open var permalink: Swift.String
+  open var seriesNumber: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, permalink: Swift.String, seriesNumber: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct FollowOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ManageDevicesOutput : Swift.Codable {
+  public var device: Swift.String?
+  public var deviceInfo: Swift.String?
+  public var deviceType: Swift.String?
+  public var googleId: Swift.String?
+  public var createdDate: Swift.String?
+  public var flag: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class CheckGeoBlockInput {
+  open var ip: Swift.String
+  public init(ip: Swift.String)
+  public init()
+  @objc deinit
+}
+open class LanguageTranslationInput {
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(language: Swift.String)
+  public init()
+  @objc deinit
+}
+open class CelebrityInput {
+  open var movieId: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(movieId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class IsRegistrationEnabledInput {
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(languageCode: Swift.String, country: Swift.String)
+  public init()
+  @objc deinit
+}
+open class CheckDeviceInput {
+  open var userId: Swift.String
+  open var device: Swift.String
+  open var googleId: Swift.String
+  open var deviceType: Swift.String
+  open var deviceInfo: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, device: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct VoucherSubscriptionOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+@_hasMissingDesignatedInitializers public class Controller {
+  open func transactionDataTask(_ params: MuviSDK.TransactionInput, postCompleted: @escaping (Swift.Result<(MuviSDK.TransactionOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getIpAddress(_ postCompleted: @escaping (Swift.Result<(MuviSDK.IPAddressOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func cancelSubscriptionPlanDataTask(_ params: MuviSDK.CancelSubscriptionPlanInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CancelSubscriptionPlanOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getFbUserStatusDataTask(_ params: MuviSDK.FbUserStatusInput, postCompleted: @escaping (Swift.Result<(MuviSDK.FbUserStatusOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func audioUserPlayListDetailDataTask(_ params: MuviSDK.AudioUserPlayListDetailInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AudioUserPlayListDetailOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func audioAllUserPlayListDataTask(_ params: MuviSDK.AudioAllUserPlayListInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AudioAllUserPlayListOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func createNewPlayListDataTask(_ params: MuviSDK.CreatePlaylistInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CreatePlaylistOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func addToPlayListDataTask(_ params: MuviSDK.AddToPlaylistInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AddToPlaylistOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func playListNameEditDataTask(_ params: MuviSDK.PlayListNameEditInput, postCompleted: @escaping (Swift.Result<(MuviSDK.PlayListNameEditOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func deletePlaylistDataTask(_ params: MuviSDK.DeletePlaylistInput, postCompleted: @escaping (Swift.Result<(MuviSDK.DeletePlaylistOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func registerUserPaymentDataTask(_ params: MuviSDK.RegisterUserPaymentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.RegisterUserPaymentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func isCouponExistsDataTask(_ params: MuviSDK.IsCouponExistsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.IsCouponExistsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func resetPasswordDataTask(_ params: MuviSDK.ResetPasswordInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ResetPasswordOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func authUserPaymentInfoDataTask(_ params: MuviSDK.AuthUserPaymentInfoInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AuthUserPaymentInfoOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func inAppPpvPaymentDataTask(_ params: MuviSDK.InAppPpvPaymentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.InAppPpvPaymentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func myUploadsDataTask(_ params: MuviSDK.MyUploadsInput, postCompleted: @escaping (Swift.Result<([MuviSDK.MyUploadsOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func deleteInvoicePathDataTask(_ params: MuviSDK.DeleteInvoicePathInput, postCompleted: @escaping (Swift.Result<(MuviSDK.DeleteInvoicePathOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getInvoicePDFDataTask(_ params: MuviSDK.GetInvoicePDFInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetInvoicePDFOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getFilterDetailsDataTask(_ params: MuviSDK.GetFilterDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetFilterDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func addGuestUserDataTask(_ params: MuviSDK.AddGuestUserInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AddGuestUserOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getLastSeenDetailsDataTask(_ params: MuviSDK.LastSeenDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LastSeenDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func assignBroadCastToContentDataTask(_ params: MuviSDK.AssignBroadCastToContentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AssignBroadCastToContentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func changevideoDataTask(_ params: MuviSDK.ChangeVideoInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ChangeVideoOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func relatedContentDataTask(_ params: MuviSDK.RelatedContentInput, postCompleted: @escaping (Swift.Result<([MuviSDK.RelatedContentOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func logoutAllDataTask(_ params: MuviSDK.LogoutAllInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LogoutAllOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func updateContentDataTask(_ params: MuviSDK.UpdateContentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.UpdateContentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func deleteContentDataTask(_ params: MuviSDK.DeleteContentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.DeleteContentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func updateGoogleIdDataTask(_ params: MuviSDK.UpdateGoogleIdInput, postCompleted: @escaping (Swift.Result<(MuviSDK.UpdateGoogleIdOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getAppHomePageDataTask(_ params: MuviSDK.AppHomePageInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AppHomePageOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getAppFeatureContentDataTask(_ params: MuviSDK.AppFeatureContentInput, postCompleted: @escaping (Swift.Result<([MuviSDK.AppFeatureContentOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getEpisodeWatchHistoryDataTask(_ params: MuviSDK.EpisodeWatchHistoryInput, postCompleted: @escaping (Swift.Result<(MuviSDK.EpisodeWatchHistoryOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getMediaQueueDataTask(_ params: MuviSDK.MediaQueueInput, postCompleted: @escaping (Swift.Result<(MuviSDK.MediaQueueOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func clearWatchHistoryDataTask(_ params: MuviSDK.ClearWatchHistoryInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ClearWatchHistoryOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func myLibraryDataTask(_ params: MuviSDK.MyLibraryInput, postCompleted: @escaping (Swift.Result<(MuviSDK.MyLibraryOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func getVoucherPlanDataTask(_ params: MuviSDK.VoucherPlanInput, postCompleted: @escaping (Swift.Result<(MuviSDK.VoucherPlanOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func validateVoucherDataTask(_ params: MuviSDK.ValidateVoucherInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ValidateVoucherOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getMerlinBBOflineDataTask(_ params: MuviSDK.MarlinBBOfflineInput, postCompleted: @escaping (Swift.Result<(MuviSDK.MarlinBBOfflineOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func addContentRatingDataTask(_ params: MuviSDK.AddContentRatingInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AddContentRatingOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getCardsListForPPVDataTask(_ params: MuviSDK.CardsListForPpvInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CardsListForPpvOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func readAllNotificationDataTask(_ params: MuviSDK.ReadAllNotificationInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ReadAllNotificationOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func facebookSigninDataTask(_ params: MuviSDK.FacebookSigninInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LoginOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func googleSigninDataTask(_ params: MuviSDK.GoogleSigninInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LoginOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getMenuListDataTask(_ params: MuviSDK.MenuListInput, postCompleted: @escaping (Swift.Result<(MuviSDK.MenuListOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getEpisodeDetailsDataTask(_ params: MuviSDK.EpisodeDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.EpisodeDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getNotificationListDataTask(_ params: MuviSDK.NotificationListsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.NotificationListsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getSubCategoryListDataTask(_ params: MuviSDK.SubCategoryListInput, postCompleted: @escaping (Swift.Result<([MuviSDK.SubCategoryListOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getCategoryListDataTask(_ params: MuviSDK.CategoryListInput, postCompleted: @escaping (Swift.Result<([MuviSDK.CategoryListOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func myPlansDataTask(_ params: MuviSDK.MyPlansInput, postCompleted: @escaping (Swift.Result<([MuviSDK.MyPlansOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func manageDevicesDataTask(_ params: MuviSDK.ManageDevicesInput, postCompleted: @escaping (Swift.Result<([MuviSDK.ManageDevicesOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getFollowListDataTask(_ params: MuviSDK.GetFollowListInput, postCompleted: @escaping (Swift.Result<([MuviSDK.GetFollowListOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getContentAuthorizedDataTask(_ params: MuviSDK.ContentAuthorizationInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ContentAuthorizationOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getVideoLogNewDataTask(_ params: MuviSDK.VideoLogNewInput, postCompleted: @escaping (Swift.Result<(MuviSDK.VideoLogNewOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func removeDeviceDataTask(_ params: MuviSDK.RemoveDeviceInput, postCompleted: @escaping (Swift.Result<(MuviSDK.RemoveDeviceOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getLanguageListDataTask(_ params: MuviSDK.LanguageListInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LanguageListOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func validateCouponCodeDataTask(_ params: MuviSDK.ValidateCouponCodeInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ValidateCouponOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func viewContentRatingDataTask(_ params: MuviSDK.ViewContentRatingInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ViewContentRatingOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getMonetizationDetailsDataTask(_ params: MuviSDK.MonetizationDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.MonetizationDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getStudioPlanListsDatTask(_ params: MuviSDK.StudioPlanListInput, postCompleted: @escaping (Swift.Result<([MuviSDK.StudioPlanListOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func setSubscriptionForOtherDevicesDataTask(_ params: MuviSDK.SubscriptionForOtherDevicesInput, postCompleted: @escaping (Swift.Result<(MuviSDK.SubscriptionForOtherDevicesOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getCastDetailDataTask(_ params: MuviSDK.CastDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CastDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func deleteFavouriteDataTask(_ params: MuviSDK.DeleteFavouriteInput, postCompleted: @escaping (Swift.Result<(MuviSDK.DeleteFavouriteOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func unFollowDataTask(_ params: MuviSDK.FollowInput, postCompleted: @escaping (Swift.Result<(MuviSDK.FollowOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func addFollowDataTask(_ params: MuviSDK.FollowInput, postCompleted: @escaping (Swift.Result<(MuviSDK.FollowOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func addToFavDataTask(_ params: MuviSDK.AddToFavInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AddToFavOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func viewFavouriteDataTask(_ params: MuviSDK.ViewFavouriteInput, postCompleted: @escaping (Swift.Result<([MuviSDK.ViewFavouriteOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func checkDeviceDataTask(_ params: MuviSDK.CheckDeviceInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CheckDeviceOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func textTranslationDataTask(_ params: MuviSDK.LanguageTranslationInput, postCompleted: @escaping (Swift.Result<Foundation.NSDictionary, MuviSDK.MSError>) -> Swift.Void)
+  open func watchHistoryDataTask(_ params: MuviSDK.WatchHistoryInput, postCompleted: @escaping (Swift.Result<([MuviSDK.WatchHistoryOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func purchaseHistoryDataTask(_ params: MuviSDK.PurchaseHistoryInput, postCompleted: @escaping (Swift.Result<([MuviSDK.PurchaseHistoryOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func registerDeviceDataTask(params: MuviSDK.RegisterDeviceInput, postCompleted: @escaping (Swift.Result<(MuviSDK.RegisterDeviceOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getNoOfUnreadNotificationDataTask(_ params: MuviSDK.UnreadNotificationInput, postCompleted: @escaping (Swift.Result<(MuviSDK.UnreadNotificationOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getCelebrityDataTask(_ params: MuviSDK.CelebrityInput, postCompleted: @escaping (Swift.Result<([MuviSDK.CelebrityOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getContentDetailsDataTask(_ params: MuviSDK.ContentDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ContentDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getContentListDataTask(_ params: MuviSDK.ContentListInput, postCompleted: @escaping (Swift.Result<([MuviSDK.ContentListOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getAppMenuDataTask(_ params: MuviSDK.AppMenuInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AppMenuOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getStaticPageDetailsDataTask(_ params: MuviSDK.StaticPageDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.StaticPageDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func checkGeoBlockCountryDataTask(_ params: MuviSDK.CheckGeoBlockInput, postCompleted: @escaping (Swift.Result<(MuviSDK.CheckGeoBlockOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func isRegistrationEnabledDataTask(_ params: MuviSDK.IsRegistrationEnabledInput, postCompleted: @escaping (Swift.Result<(MuviSDK.IsRegistrationEnabledOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getImageForDownload(_ postCompleted: @escaping (Swift.Result<(MuviSDK.ImageForDownloadOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> ())
+  open func searchDataDataTask(_ params: MuviSDK.SearchDataInput, postCompleted: @escaping (Swift.Result<([MuviSDK.SearchDataOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func registerUserDataTask(_ params: MuviSDK.RegistrationInput, postCompleted: @escaping (Swift.Result<(MuviSDK.RegistrationOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func loginUserDataTask(_ params: MuviSDK.LoginInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LoginOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getTrailerDetailsDataTask(_ params: MuviSDK.TrailerDetailsInput, postCompleted: @escaping (Swift.Result<([MuviSDK.TrailerDetailsOutput], Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func forgotPasswordDataTask(_ params: MuviSDK.ForgotPasswordInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ForgotPasswordOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getVideoDetailsDataTask(_ params: MuviSDK.GetVideoDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetVideoDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func logoutDataTask(_ params: MuviSDK.LogoutInput, postCompleted: @escaping (Swift.Result<(MuviSDK.LogoutOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func updateUserProfileDataTask(_ params: MuviSDK.UpdateUserProfileInput, postCompleted: @escaping (Swift.Result<(MuviSDK.UpdateUserProfileOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getUserProfileDataTask(_ params: MuviSDK.GetUserProfileInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetUserProfileOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getAppHomeFeatureDataTask(_ params: MuviSDK.AppHomeFeatureInput, postCompleted: @escaping (Swift.Result<(MuviSDK.AppHomeFeatureOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func contactUsDataTask(params: MuviSDK.ContactUsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.ContactUsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func generateOTPDataTask(params: MuviSDK.GenerateOTPInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GenerateOTPOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getBlogDetailsDataTask(_ params: MuviSDK.GetBlogDetailsInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetBlogDetailsOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func getBlogListDataTask(_ params: MuviSDK.GetBlogListInput, postCompleted: @escaping (Swift.Result<(MuviSDK.GetBlogListOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  open func postBlogCommentDataTask(_ params: MuviSDK.PostBlogCommentInput, postCompleted: @escaping (Swift.Result<(MuviSDK.PostBlogCommentOutput, Foundation.NSDictionary), MuviSDK.MSError>) -> Swift.Void)
+  @objc deinit
+}
+open class ClearWatchHistoryInput {
+  open var userId: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ViewRatingOutput : Swift.Codable {
+  public var displayName: Swift.String?
+  public var createdDate: Swift.String?
+  public var rating: Swift.String?
+  public var review: Swift.String?
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ViewContentRatingOutput : Swift.Codable {
+  public var showrating: Swift.Int?
+  public var rating: [MuviSDK.ViewRatingOutput]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CelebrityOutput : Swift.Codable {
+  public var name: Swift.String
+  public var castType: Swift.String
+  public var celebrityImage: Swift.String
+  public var permalink: Swift.String
+  public var summary: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct LogoutOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CancelSubscriptionPlanOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class CardsListForPpvInput {
+  open var userId: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class DeleteContentInput {
+  open var userId: Swift.String
+  open var playlistId: Swift.String
+  open var contentId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, playlistId: Swift.String, contentId: Swift.String)
+  public init()
+  @objc deinit
+}
+public enum GenericValue : Swift.Decodable {
+  case int(Swift.Int), string(Swift.String)
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct EpisodeDetailsOutput : Swift.Decodable {
+  public var name: Swift.String?
+  public var permalink: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var studioId: Swift.String?
+  public var isPpv: Swift.Int?
+  public var ppvPricing: MuviSDK.PPVPricing?
+  public var currency: MuviSDK.Currency?
+  public var episode: [MuviSDK.Episode]?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct Episode : Swift.Decodable {
+  public var fullMovie: Swift.String?
+  public var episodeNumber: MuviSDK.GenericValue?
+  public var episodeTitle: Swift.String?
+  public var episodeDate: Swift.String?
+  public var episodeStory: Swift.String?
+  public var videoUrl: Swift.String?
+  public var videoDuration: Swift.String?
+  public var videoResolution: Swift.String?
+  public var posterUrl: Swift.String?
+  public var movieStreamUniqId: Swift.String?
+  public var isFree: Swift.Int?
+  public var resolution: [MuviSDK.Resolution]?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct PPVPricing : Swift.Codable {
+  public var id: Swift.String?
+  public var title: Swift.String?
+  public var priceForUnsubscribed: Swift.String?
+  public var priceForSubscribed: Swift.String?
+  public var showUnsubscribed: Swift.String?
+  public var seasonUnsubscribed: Swift.String?
+  public var episodeUnsubscribed: Swift.String?
+  public var showSubscribed: Swift.String?
+  public var seasonSubscribed: Swift.String?
+  public var episodeSubscribed: Swift.String?
+  public var validityPeriod: Swift.String?
+  public var validityRecurrence: Swift.String?
+  public var isShow: Swift.Int?
+  public var isSeason: Swift.Int?
+  public var isEpisode: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Resolution : Swift.Decodable {
+  public var resolution: Any?
+  public var url: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MyPlansOutput : Swift.Codable {
+  public var planId: Swift.String?
+  public var startDate: Swift.String?
+  public var endDate: Swift.String?
+  public var name: Swift.String?
+  public var amount: Swift.String?
+  public var shortDesc: Swift.String?
+  public var recurrence: Swift.String?
+  public var frequency: Swift.String?
+  public var currency: MuviSDK.Currency?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class UnreadNotificationInput {
+  open var deviceID: Swift.String
+  open var userId: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(deviceID: Swift.String)
+  public init()
+  @objc deinit
+}
+open class FollowInput {
+  open var uniqueId: Swift.String
+  open var followType: Swift.String
+  open var userId: Swift.String?
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(uniqueId: Swift.String, userId: Swift.String, followType: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct CreatePlaylistOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var total: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct AddToFavOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class SearchDataInput {
+  open var q: Swift.String
+  open var offset: Swift.String
+  open var limit: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(queryString: Swift.String, offset: Swift.String, limit: Swift.String)
+  public init()
+  @objc deinit
+}
+open class PostBlogCommentInput {
+  open var name: Swift.String
+  open var userId: Swift.String
+  open var permalink: Swift.String
+  open var comment: Swift.String
+  open var languageCode: Swift.String
+  public init(userId: Swift.String, name: Swift.String, permalink: Swift.String, comment: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct LastSeenDetailsOutput : Swift.Codable {
+  public var lastSeenStreamUniqId: Swift.String?
+  public var lastSeenMuviUniqId: Swift.String?
+  public var contentTitle: Swift.String?
+  public var defaultPoster: Swift.String?
+  public var seriesNo: Swift.String?
+  public var completdStatus: Swift.Int?
+  public var nextEpisodes: [Swift.Dictionary<Swift.String, Swift.String>]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct AppHomePageOutput : Swift.Codable {
+  public var bannerText: Swift.String?
+  public var isFeatured: Swift.Int?
+  public var SectionName: [MuviSDK.HomePageSection]?
+  public var BannerSectionList: [MuviSDK.HomePageBanner]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct HomePageSection : Swift.Codable {
+  public var sectionId: Swift.String?
+  public var title: Swift.String?
+  public var studioId: Swift.String?
+  public var languageId: Swift.String?
+  public var sectionType: Swift.String?
+  public var total: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct HomePageBanner : Swift.Codable {
+  public var imagePath: Swift.String?
+  public var bannerUrl: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MyUploadsOutput : Swift.Codable {
+  public var contentCategoryId: Swift.String?
+  public var bannerUrl: Swift.String?
+  public var movieStreamUniqId: Swift.String?
+  public var movieId: Swift.String?
+  public var movieStreamId: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var permalink: Swift.String?
+  public var ppvPlanId: Swift.String?
+  public var name: Swift.String?
+  public var fullMovie: Swift.String?
+  public var story: Swift.String?
+  public var releaseDate: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var isConverted: Swift.String?
+  public var posterUrl: Swift.String?
+  public var videoDuration: Swift.String?
+  public var embeddedUrl: Swift.String?
+  public var contentPublishStatus: Swift.Int?
+  public var langCode: Swift.String?
+  public var language: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AddToFavInput {
+  open var userId: Swift.String
+  open var movieUniqId: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  open var contentType: Swift.String
+  public init(userId: Swift.String, movieUniqId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class ContentAuthorizationInput {
+  open var userId: Swift.String
+  open var movieId: Swift.String
+  open var seasonId: Swift.String
+  open var episodeId: Swift.String
+  open var purchaseType: Swift.String
+  open var isGuestUser: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieId: Swift.String)
+  public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class MuviAPISDK : ObjectiveC.NSObject {
+  public static let controller: MuviSDK.Controller
+  public static func initialiseSDK(with authorizationToken: Swift.String, _ completionHandler: @escaping (Swift.Result<(Swift.Int, Swift.String), MuviSDK.MSError>) -> ())
+  @objc deinit
+  @objc override dynamic public init()
+}
+public struct LogoutAllOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ValidateVoucherOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AddContentRatingInput {
+  open var contentId: Swift.String
+  open var userId: Swift.String
+  open var rating: Swift.String
+  open var review: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(contentId: Swift.String, userId: Swift.String, rating: Swift.String, review: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct UpdateContentOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct DeleteContentOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct FbUserStatusOutput : Swift.Codable {
+  public var id: Swift.String?
+  public var email: Swift.String?
+  public var displayName: Swift.String?
+  public var nickName: Swift.String?
+  public var studioId: Swift.String?
+  public var isNewuser: Swift.Int?
+  public var profileImage: Swift.String?
+  public var isSubscribed: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct EpisodeWatchHistoryOutput : Swift.Decodable {
+  public var name: Swift.String?
+  public var muviUniqId: Swift.String?
+  public var isPpv: Swift.Int?
+  public var itemCount: Swift.Int?
+  public var ppvPricing: MuviSDK.PPVPricing?
+  public var currency: Swift.String?
+  public var episode: [MuviSDK.Episode]?
+  public init(from decoder: Swift.Decoder) throws
+}
+open class ResetPasswordInput {
+  open var userId: Swift.String
+  open var password: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, password: Swift.String)
+  public init()
+  @objc deinit
+}
+open class RelatedContentInput {
+  open var contentId: Swift.String
+  open var contentStreamId: Swift.String
+  open var languageCode: Swift.String
+  public init(contentId: Swift.String, contentStreamId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ForgotPasswordOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class StudioPlanListInput {
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(langCode: Swift.String, country: Swift.String)
+  public init()
+  @objc deinit
+}
+open class GetBlogListInput {
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var sortBy: Swift.String
+  open var orderBy: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(limit: Swift.String, offset: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ImageForDownloadOutput : Swift.Codable {
+  public var imageUrl: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class DeletePlaylistInput {
+  open var userId: Swift.String
+  open var playlistId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, playlistId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct CheckDeviceOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class MyLibraryInput {
+  open var userId: Swift.String
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, limit: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct GetFilterDetailsOutput : Swift.Codable {
+  public var genre: [Swift.Dictionary<Swift.String, Swift.String>]?
+  public var catagory: [Swift.Dictionary<Swift.String, Swift.String>]?
+  public var sortBy: [Swift.Dictionary<Swift.String, Swift.String>]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct GenerateOTPOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var otp: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct VideoLogNewOutput : Swift.Codable {
+  public var logId: Swift.String?
+  public var logTempId: Swift.String?
+  public var restrictStreamId: Swift.Int?
+  public var noOfViews: Swift.String?
+  public var availTime: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ValidateCouponCodeInput {
+  open var userId: Swift.String
+  open var couponCode: Swift.String
+  open var currencyId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, couponCode: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct PlayListNameEditOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AppMenuInput {
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(languageCode: Swift.String, country: Swift.String)
+  public init()
+  @objc deinit
+}
+open class LoginInput {
+  open var email: Swift.String
+  open var password: Swift.String
+  open var deviceId: Swift.String
+  open var googleId: Swift.String
+  open var deviceType: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  open var mobileNumber: Swift.String
+  public init(email: Swift.String, password: Swift.String, deviceId: Swift.String, googleId: Swift.String, mobileNumber: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct NotificationListsOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var countUnread: Swift.Int?
+  public var count: Swift.Int?
+  public var notifyList: [MuviSDK.NotificationInfo]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct NotificationInfo : Swift.Codable {
+  public var id: Swift.String?
+  public var studioId: Swift.String?
+  public var deviceId: Swift.String?
+  public var fcmToken: Swift.String?
+  public var message: Swift.String?
+  public var messageUniqueId: Swift.String?
+  public var deviceType: Swift.String?
+  public var status: Swift.String?
+  public var createdDate: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MarlinBBOfflineOutput : Swift.Decodable {
+  public var multipleResolution: [MuviSDK.Resolution]?
+  public var file: Swift.String?
+  public var token: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+}
+public struct MarlinBBOfflineData : Swift.Decodable {
+  public var status: Swift.String?
+  public var data: MuviSDK.MarlinBBOfflineOutput?
+  public init(from decoder: Swift.Decoder) throws
+}
+open class AppHomeFeatureInput : Swift.Codable {
+  open var userId: Swift.String
+  open var featureSecLimit: Swift.String
+  open var featureSecOffset: Swift.String
+  open var featureContentLimit: Swift.String
+  open var featureContentOffset: Swift.String
+  open var platform: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+  required public init(from decoder: Swift.Decoder) throws
+  open func encode(to encoder: Swift.Encoder) throws
+}
+public struct AudioUserPlayListDetailOutput : Swift.Codable {
+  public var listId: Swift.String?
+  public var listName: Swift.String?
+  public var contentCategory: Swift.String?
+  public var posterPlaylist: Swift.String?
+  public var count: Swift.Int?
+  public var lists: [MuviSDK.AudioTrack]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct AudioTrack : Swift.Codable {
+  public var movieStreamId: Swift.String?
+  public var movieId: Swift.String?
+  public var isEpisode: Swift.String?
+  public var url: Swift.String?
+  public var audioPoster: Swift.String?
+  public var title: Swift.String?
+  public var permalink: Swift.String?
+  public var isFavourite: Swift.Int?
+  public var movieUniqId: Swift.String?
+  public var streamUniqId: Swift.String?
+  public var cast: Swift.String?
+  public var isSecondaryConverted: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct GetBlogDetailsOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var data: MuviSDK.GetBlogDetailsData?
+  public var comments: [MuviSDK.GetBlogDetailsComments]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct GetBlogDetailsData : Swift.Codable {
+  public var blogId: Swift.String?
+  public var permalink: Swift.String?
+  public var postTitle: Swift.String?
+  public var shortDesc: Swift.String?
+  public var thumb: Swift.String?
+  public var fullDesc: Swift.String?
+  public var author: Swift.String?
+  public var date: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct GetBlogDetailsComments : Swift.Codable {
+  public var name: Swift.String?
+  public var email: Swift.String?
+  public var comment: Swift.String?
+  public var createdDate: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class UpdateUserProfileInput {
+  open var name: Swift.String
+  open var nickName: Swift.String
+  open var userId: Swift.String
+  open var password: Swift.String
+  open var currentPassword: Swift.String
+  open var mobileNumber: Swift.String
+  open var mobileCountryCode: Swift.String
+  open var email: Swift.String
+  open var langCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class LogoutAllInput {
+  open var emailId: Swift.String
+  open var deviceType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(emailId: Swift.String, deviceType: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AssignBroadCastToContentOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var feedUrl: Swift.String?
+  public var streamUrl: Swift.String?
+  public var streamKey: Swift.String?
+  public var movieId: Swift.String?
+  public var uniqId: Swift.String?
+  public var movieStreamUniqId: Swift.String?
+  public var uploadVideoPath: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class SocialAuthInput {
+  open var email: Swift.String
+  open var fbUserid: Swift.String
+  open var name: Swift.String
+  open var deviceId: Swift.String
+  open var deviceType: Swift.String
+  open var googleId: Swift.String
+  open var gPlusUserId: Swift.String
+  public init(email: Swift.String, name: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct UpdateUserProfileOutput : Swift.Codable {
+  public var code: Swift.Int?
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public var name: Swift.String?
+  public var email: Swift.String?
+  public var mobileNumber: Swift.String?
+  public var profileImage: Swift.String?
+  public var nickName: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CardsListForPpvOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var canSaveCard: Swift.String?
+  public var cards: [MuviSDK.Card]?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Card : Swift.Codable {
+  public var cardId: Swift.String?
+  public var cardName: Swift.String?
+  public var cardHolderName: Swift.String?
+  public var cardLastFourdigit: Swift.String?
+  public var cardType: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class RegisterDeviceInput {
+  open var userId: Swift.String
+  open var deviceID: Swift.String
+  open var fcmToken: Swift.String
+  open var deviceType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(deviceID: Swift.String, fcmToken: Swift.String)
+  public init()
+  @objc deinit
+}
+open class ForgotPasswordInput {
+  open var email: Swift.String
+  open var mobileNumber: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  open var generatePwd: Swift.String
+  public init(email: Swift.String)
+  public init(mobileNumber: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct OfflineViewRemainingTimeOutput : Swift.Codable {
+  public var streamUniqId: Swift.String?
+  public var requestData: Swift.String?
+  public var accessExpiryTime: Swift.String?
+  public var createdDate: Swift.Int64
+  public var downloadCompleteMsg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class GenreListInput {
+  open var authToken: Swift.String
+  open var language: Swift.String
+  open var country: Swift.String
+  public init(authToken: Swift.String, language: Swift.String, country: Swift.String)
+  @objc deinit
+}
+public struct MenuListOutput : Swift.Codable {
+  public var menu: [MuviSDK.Menu]
+  public var footerMenu: [MuviSDK.FooterMenu]
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct Menu : Swift.Codable {
+  public var id: Swift.String?
+  public var permalink: Swift.String?
+  public var linkType: Swift.String?
+  public var displayName: Swift.String?
+  public var parentId: Swift.String?
+  public var webUrl: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ViewFavouriteOutput : Swift.Codable {
+  public var movieId: Swift.String?
+  public var permalink: Swift.String?
+  public var title: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var poster: Swift.String?
+  public var isEpisode: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ViewFavouriteInput {
+  open var userId: Swift.String
+  open var country: Swift.String
+  open var langCode: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AppFeatureContentOutput : Swift.Codable {
+  public var posterUrl: Swift.String?
+  public var isConverted: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var name: Swift.String?
+  public var permalink: Swift.String?
+  public var episodeNo: Swift.String?
+  public var totalSeason: Swift.Int?
+  public var isEpisode: Swift.String?
+  public var muviUniqId: Swift.String!
+  public var movieStreamUniqId: Swift.String!
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct CheckGeoBlockOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var country: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class MarlinBBOfflineInput {
+  open var streamUniqueId: Swift.String
+  public init(streamUniqueId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct VoucherPlanOutput : Swift.Codable {
+  public var contentTypesId: Swift.Int?
+  public var isShow: Swift.Int?
+  public var isSeason: Swift.Int?
+  public var isEpisode: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class GetFollowListInput {
+  open var followType: Swift.String
+  open var userId: Swift.String
+  open var limit: Swift.String
+  open var offset: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, followType: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ChangeVideoOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var changeVideoPath: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ResetPasswordOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class AudioAllUserPlayListInput {
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  public init(userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct ClearWatchHistoryOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct ChildMenu : Swift.Codable {
+  public var id: Swift.Int?
+  public var parentId: Swift.Int?
+  public var permalink: Swift.String?
+  public var title: Swift.String?
+  public var linkType: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class NotificationListsInput {
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(deviceId: Swift.String, userId: Swift.String)
+  public init()
+  @objc deinit
+}
+public class OfflineViewRemainingTimeInput {
+  open var userId: Swift.String
+  open var deviceType: Swift.String
+  open var deviceId: Swift.String
+  open var requestData: Swift.String
+  open var streamUniqueId: Swift.String
+  open var watchRemainingTime: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(userId: Swift.String, streamUniqueId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class AuthUserPaymentInfoInput {
+  open var cardNumber: Swift.String
+  open var nameOnCard: Swift.String
+  open var expiryMonth: Swift.String
+  open var expiryYear: Swift.String
+  open var cvv: Swift.String
+  open var email: Swift.String
+  open var planId: Swift.String
+  open var billFname: Swift.String
+  open var billLname: Swift.String
+  open var billPhone: Swift.String
+  open var billEmail: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(cardNumber: Swift.String, nameOnCard: Swift.String, expiryMonth: Swift.String, expiryYear: Swift.String, cvv: Swift.String, email: Swift.String, planId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct IsRegistrationEnabledOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var isMylibrary: Swift.Int?
+  public var isRating: Swift.Int?
+  public var isLogin: Swift.Int?
+  public var hasFavourite: Swift.Int?
+  public var signupStep: Swift.Int?
+  public var isRestrictDevice: Swift.Int?
+  public var isStreamingRestriction: Swift.Int?
+  public var chromecast: Swift.Int?
+  public var isOffline: Swift.Int?
+  public var registerThrough: Swift.Int?
+  public var isOtpEnabled: Swift.Int?
+  public var allowAddEmail: Swift.Int?
+  public var allowAddPhoneNo: Swift.Int?
+  public var otpExpiryDuration: Swift.Int?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ChangeVideoInput {
+  open var streamUniqId: Swift.String
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, streamUniqId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct RegisterDeviceOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class SubscriptionForOtherDevicesInput {
+  open var email: Swift.String
+  open var currencyId: Swift.String
+  open var outSourcePlanId: Swift.String
+  open var amount: Swift.String
+  open var planId: Swift.String
+  open var outSourceUserId: Swift.String
+  public init(email: Swift.String, currencyId: Swift.String, outSourcePlanId: Swift.String, amount: Swift.String, planId: Swift.String, outSourceUserId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class MenuListInput {
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init()
+  public init(languageCode: Swift.String, country: Swift.String)
+  @objc deinit
+}
+open class GenreListOutput {
+  open var genreName: Swift.String!
+  open var code: Swift.Int?
+  open var status: Swift.String?
+  open var msg: Swift.String?
+  public init(code: Swift.Int, status: Swift.String, msg: Swift.String, genreName: Swift.String)
+  @objc deinit
+}
+open class GetFilterDetailsInput {
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(languageCode: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct GetInvoicePDFOutput : Swift.Codable {
+  public var section: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class LastSeenDetailsInput {
+  open var movieUniqId: Swift.String
+  open var userId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieUniqId: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct RegisterUserPaymentOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class SubCategoryListInput {
+  open var categoryId: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(categoryId: Swift.String, languageCode: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct UpdateGoogleIdOutput : Swift.Codable {
+  public var status: Swift.String?
+  public var msg: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class ReadAllNotificationInput {
+  open var userId: Swift.String
+  open var deviceId: Swift.String
+  open var country: Swift.String
+  open var languageCode: Swift.String
+  public init(deviceId: Swift.String, userId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class MediaQueueInput {
+  open var userId: Swift.String
+  open var streamUniqId: Swift.String
+  open var contentInfo: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, streamUniqId: Swift.String, contentInfo: Swift.String = "0")
+  public init()
+  @objc deinit
+}
+public struct InAppPpvPaymentOutput : Swift.Codable {
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class InAppPpvPaymentInput {
+  open var userId: Swift.String
+  open var movieId: Swift.String
+  open var season: Swift.String
+  open var streamId: Swift.String
+  open var purchaseType: Swift.String
+  open var isAdvance: Swift.String
+  open var currencyId: Swift.String
+  open var isGuestuser: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, movieId: Swift.String)
+  public init()
+  @objc deinit
+}
+open class VoucherPlanInput {
+  open var movieId: Swift.String
+  open var userId: Swift.String
+  open var streamId: Swift.String
+  open var season: Swift.String
+  open var isGuestUser: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(userId: Swift.String, streamId: Swift.String, movieId: Swift.String, season: Swift.String)
+  public init()
+  @objc deinit
+}
+public struct AppMenuOutput : Swift.Codable {
+  public var menuItems: [MuviSDK.MainMenuItems]
+  public var footerMenu: [MuviSDK.FooterMenu]
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+open class IsCouponExistsInput {
+  open var storeType: Swift.String
+  open var languageCode: Swift.String
+  open var country: Swift.String
+  public init(storeType: Swift.String)
+  public init()
+  @objc deinit
+}
+open class GetUserProfileInput {
+  open var email: Swift.String
+  open var userId: Swift.String
+  open var country: Swift.String
+  open var langCode: Swift.String
+  open var mobileNumber: Swift.String
+  public init()
+  public init(email: Swift.String, userId: Swift.String)
+  public init(mobileNumber: Swift.String, userId: Swift.String)
+  @objc deinit
+}
+public struct SubscriptionForOtherDevicesOutput : Swift.Codable {
+  public var code: Swift.Int?
+  public var message: Swift.String?
+  public var status: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MediaQueueOutput : Swift.Codable {
+  public var msg: Swift.String?
+  public var nextMediaInfo: MuviSDK.MediaInfo?
+  public var previousMediaInfo: MuviSDK.MediaInfo?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public struct MediaInfo : Swift.Codable {
+  public var contentTitle: Swift.String?
+  public var contentTypesId: Swift.String?
+  public var contentUniqId: Swift.String?
+  public var streamUniqId: Swift.String?
+  public var defaultPoster: Swift.String?
+  public var description: Swift.String?
+  public var duration: Swift.String?
+  public var episodeNo: Swift.String?
+  public var seasonNo: Swift.String?
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}

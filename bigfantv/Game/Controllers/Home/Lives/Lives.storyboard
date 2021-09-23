@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xdy-yW-RTq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Lives View Controller-->
+        <scene sceneID="ypz-Np-t1m">
+            <objects>
+                <viewController storyboardIdentifier="GetLives" id="xdy-yW-RTq" customClass="LivesViewController" customModule="Outquiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mLI-PM-Tvr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart_big" translatesAutoresizingMaskIntoConstraints="NO" id="chV-mH-7PY" userLabel="Icon">
+                                <rect key="frame" x="139" y="36" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="chV-mH-7PY" secondAttribute="height" multiplier="1:1" id="jx4-w9-5zk"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Info about how to share referral code" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NPt-rq-lSp" userLabel="Info">
+                                <rect key="frame" x="16" y="133" width="343" height="430"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="ubT-ht-a8T"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR REFERRAL CODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFe-c3-xoL" userLabel="Code Title">
+                                <rect key="frame" x="16" y="563" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="kNt-yh-IZd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZJX-My-rAc" userLabel="Code Button" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                <rect key="frame" x="32" y="601" width="311" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1w1-sl-fXH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="userreferralcode">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="codeButtonTap:" destination="xdy-yW-RTq" eventType="touchUpInside" id="u9h-RR-w7k"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="NPt-rq-lSp" firstAttribute="top" secondItem="chV-mH-7PY" secondAttribute="bottom" id="60F-4S-RjI"/>
+                            <constraint firstItem="vgm-2w-mUe" firstAttribute="trailing" secondItem="ZJX-My-rAc" secondAttribute="trailing" constant="32" id="Ksn-dM-cGt"/>
+                            <constraint firstItem="chV-mH-7PY" firstAttribute="height" secondItem="vgm-2w-mUe" secondAttribute="height" multiplier="0.15" id="MEk-pY-sEX"/>
+                            <constraint firstItem="vgm-2w-mUe" firstAttribute="trailing" secondItem="NPt-rq-lSp" secondAttribute="trailing" constant="16" id="O2e-oJ-rqZ"/>
+                            <constraint firstItem="vgm-2w-mUe" firstAttribute="trailing" secondItem="fFe-c3-xoL" secondAttribute="trailing" constant="16" id="SS8-nZ-bUS"/>
+                            <constraint firstItem="vgm-2w-mUe" firstAttribute="bottom" secondItem="ZJX-My-rAc" secondAttribute="bottom" constant="16" id="WJC-gL-ZQK"/>
+                            <constraint firstItem="NPt-rq-lSp" firstAttribute="leading" secondItem="vgm-2w-mUe" secondAttribute="leading" constant="16" id="YO0-gc-5EI"/>
+                            <constraint firstItem="ZJX-My-rAc" firstAttribute="top" secondItem="fFe-c3-xoL" secondAttribute="bottom" constant="8" id="gCY-OC-nRh"/>
+                            <constraint firstItem="chV-mH-7PY" firstAttribute="centerX" secondItem="mLI-PM-Tvr" secondAttribute="centerX" id="hqF-5p-AI2"/>
+                            <constraint firstItem="fFe-c3-xoL" firstAttribute="leading" secondItem="vgm-2w-mUe" secondAttribute="leading" constant="16" id="iMy-I0-dDh"/>
+                            <constraint firstItem="chV-mH-7PY" firstAttribute="top" secondItem="vgm-2w-mUe" secondAttribute="top" constant="16" id="j1s-wb-n88"/>
+                            <constraint firstItem="ZJX-My-rAc" firstAttribute="leading" secondItem="vgm-2w-mUe" secondAttribute="leading" constant="32" id="poZ-oe-fLJ"/>
+                            <constraint firstItem="fFe-c3-xoL" firstAttribute="top" secondItem="NPt-rq-lSp" secondAttribute="bottom" id="yzA-Wf-X78"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vgm-2w-mUe"/>
+                    </view>
+                    <connections>
+                        <outlet property="codeButton" destination="ZJX-My-rAc" id="5Gk-rw-n5Z"/>
+                        <outlet property="codeTitleLabel" destination="fFe-c3-xoL" id="3Gc-rp-Roh"/>
+                        <outlet property="infoLabel" destination="NPt-rq-lSp" id="GeE-Bl-iXZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UIC-HF-SIv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="365"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="heart_big" width="221" height="192"/>
+    </resources>
+</document>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xAW-DN-jsJ">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Cashout View Controller-->
+        <scene sceneID="E1m-ef-fR2">
+            <objects>
+                <viewController storyboardIdentifier="Cashout" id="xAW-DN-jsJ" customClass="CashoutViewController" customModule="Outquiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zOw-J3-Ep6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cash_big" translatesAutoresizingMaskIntoConstraints="NO" id="epo-1n-9J9" userLabel="Icon">
+                                <rect key="frame" x="139" y="36" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="epo-1n-9J9" secondAttribute="height" multiplier="1:1" id="aSk-9L-Xwc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$12.45" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Igo-E0-Vs6" userLabel="Balance">
+                                <rect key="frame" x="16" y="149" width="343" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="icr-vG-t2Q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="PayPal Email Address" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zal-eV-yjx" userLabel="PayPal">
+                                <rect key="frame" x="32" y="214" width="311" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="3BY-WW-SOz"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please verify that the email used above is a valid PayPal email account." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7T-hb-D5k" userLabel="Info">
+                                <rect key="frame" x="32" y="280" width="311" height="305"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Z9w-Uk-rAH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FNj-Xo-AzF" userLabel="Submit" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                <rect key="frame" x="32" y="601" width="311" height="50"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="05m-Pb-6GB"/>
+                                </constraints>
+                                <state key="normal" title="Cashout with PayPal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonTap:" destination="xAW-DN-jsJ" eventType="touchUpInside" id="4kt-RM-P5o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="FNj-Xo-AzF" firstAttribute="leading" secondItem="fIb-J4-gER" secondAttribute="leading" constant="32" id="4uz-PT-rUr"/>
+                            <constraint firstItem="epo-1n-9J9" firstAttribute="height" secondItem="fIb-J4-gER" secondAttribute="height" multiplier="0.15" id="815-T8-SED"/>
+                            <constraint firstItem="epo-1n-9J9" firstAttribute="top" secondItem="fIb-J4-gER" secondAttribute="top" constant="16" id="Bwc-s7-zmx"/>
+                            <constraint firstItem="FNj-Xo-AzF" firstAttribute="bottom" secondItem="fIb-J4-gER" secondAttribute="bottom" constant="-16" id="FF3-ej-dul"/>
+                            <constraint firstItem="zal-eV-yjx" firstAttribute="top" secondItem="Igo-E0-Vs6" secondAttribute="bottom" id="Mrq-k5-Swf"/>
+                            <constraint firstItem="epo-1n-9J9" firstAttribute="centerX" secondItem="zOw-J3-Ep6" secondAttribute="centerX" id="PzM-Xc-hh8"/>
+                            <constraint firstItem="Igo-E0-Vs6" firstAttribute="leading" secondItem="fIb-J4-gER" secondAttribute="leading" constant="16" id="dA6-Gt-0y3"/>
+                            <constraint firstItem="fIb-J4-gER" firstAttribute="trailing" secondItem="c7T-hb-D5k" secondAttribute="trailing" constant="32" id="eFw-3h-dHi"/>
+                            <constraint firstItem="Igo-E0-Vs6" firstAttribute="top" secondItem="epo-1n-9J9" secondAttribute="bottom" constant="16" id="fmM-qP-4BI"/>
+                            <constraint firstItem="fIb-J4-gER" firstAttribute="trailing" secondItem="Igo-E0-Vs6" secondAttribute="trailing" constant="16" id="g3b-Yh-d4Z"/>
+                            <constraint firstItem="FNj-Xo-AzF" firstAttribute="top" secondItem="c7T-hb-D5k" secondAttribute="bottom" constant="16" id="hJJ-uI-kbb"/>
+                            <constraint firstItem="c7T-hb-D5k" firstAttribute="top" secondItem="zal-eV-yjx" secondAttribute="bottom" constant="16" id="mTo-M5-cav"/>
+                            <constraint firstItem="zal-eV-yjx" firstAttribute="leading" secondItem="fIb-J4-gER" secondAttribute="leading" constant="32" id="oMl-ZY-a3J"/>
+                            <constraint firstItem="c7T-hb-D5k" firstAttribute="leading" secondItem="fIb-J4-gER" secondAttribute="leading" constant="32" id="rjU-Hs-ajl"/>
+                            <constraint firstItem="fIb-J4-gER" firstAttribute="trailing" secondItem="FNj-Xo-AzF" secondAttribute="trailing" constant="32" id="uC9-ix-grc"/>
+                            <constraint firstItem="fIb-J4-gER" firstAttribute="trailing" secondItem="zal-eV-yjx" secondAttribute="trailing" constant="32" id="yhI-0t-fs8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fIb-J4-gER"/>
+                    </view>
+                    <connections>
+                        <outlet property="balanceLabel" destination="Igo-E0-Vs6" id="cWD-v6-nnx"/>
+                        <outlet property="infoLabel" destination="c7T-hb-D5k" id="R0I-62-2jB"/>
+                        <outlet property="paypalField" destination="zal-eV-yjx" id="Dnh-Ya-cLu"/>
+                        <outlet property="submitButton" destination="FNj-Xo-AzF" id="PWA-KZ-Fks"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7FY-jh-Lc8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2321" y="364"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="cash_big" width="220" height="220"/>
+    </resources>
+</document>

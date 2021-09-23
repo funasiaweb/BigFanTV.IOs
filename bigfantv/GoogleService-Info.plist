@@ -3,21 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>438516930813-ssg8dte52kvfl6h6jubgtcgmtgjcv24o.apps.googleusercontent.com</string>
+	<string>535839392360-j4hh70m8jip5kuiqc58tu84r0e96q3vv.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.438516930813-ssg8dte52kvfl6h6jubgtcgmtgjcv24o</string>
+	<string>com.googleusercontent.apps.535839392360-j4hh70m8jip5kuiqc58tu84r0e96q3vv</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>535839392360-64c1ab5v8k25gt748ano051qs4qo1ccu.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCfweUvGz7DUsDMf49YK8hYOXzH6cIcQsg</string>
+	<string>AIzaSyDdBTu-ffYOtliPV77Z8al_evKfaZYPnpY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>438516930813</string>
+	<string>535839392360</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.funasia.bigfantv</string>
+	<string>mobapp.at.FunAsia</string>
 	<key>PROJECT_ID</key>
-	<string>bigfantv-13cd6</string>
+	<string>bigfan2-433c6</string>
 	<key>STORAGE_BUCKET</key>
-	<string>bigfantv-13cd6.appspot.com</string>
+	<string>bigfan2-433c6.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:438516930813:ios:9f0cd4fc8e8f7c5e8cc694</string>
+	<string>1:535839392360:ios:7173487d867eb9a3c831dd</string>
 	<key>DATABASE_URL</key>
-	<string>https://bigfantv-13cd6.firebaseio.com</string>
+	<string>https://bigfan2-433c6-default-rtdb.firebaseio.com</string>
 </dict>
 </plist>

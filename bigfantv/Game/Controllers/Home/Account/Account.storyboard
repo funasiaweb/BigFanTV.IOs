@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IsU-z4-Ovm">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Account View Controller-->
+        <scene sceneID="GfQ-yQ-IoG">
+            <objects>
+                <viewController id="IsU-z4-Ovm" customClass="AccountViewController" customModule="Outquiz" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="s9I-k6-O8e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="awy-Dp-4aw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAd-SW-n4g" userLabel="Content View">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DcA-BY-wXc" userLabel="Avatar Area">
+                                                <rect key="frame" x="107.5" y="32" width="160" height="160"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lzp-5D-giz" userLabel="Avatar" customClass="RoundedImageView" customModule="Outquiz" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="160"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="lzp-5D-giz" secondAttribute="height" multiplier="1:1" id="Ocg-5v-vP6"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="BIL-Ti-ZjA" userLabel="Edit Icon">
+                                                        <rect key="frame" x="118" y="10" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="Kq9-Wm-5EM"/>
+                                                            <constraint firstAttribute="height" constant="32" id="sbQ-Sd-BHY"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="BIL-Ti-ZjA" secondAttribute="trailing" constant="10" id="6RW-ez-ZSn"/>
+                                                    <constraint firstAttribute="width" constant="160" id="Fb9-d3-uV6"/>
+                                                    <constraint firstAttribute="bottom" secondItem="lzp-5D-giz" secondAttribute="bottom" id="HwO-3F-z5z"/>
+                                                    <constraint firstItem="lzp-5D-giz" firstAttribute="centerX" secondItem="DcA-BY-wXc" secondAttribute="centerX" id="fXR-R7-fCj"/>
+                                                    <constraint firstItem="lzp-5D-giz" firstAttribute="top" secondItem="DcA-BY-wXc" secondAttribute="top" id="hvk-o7-1DH"/>
+                                                    <constraint firstAttribute="height" constant="160" id="l56-81-kso"/>
+                                                    <constraint firstItem="BIL-Ti-ZjA" firstAttribute="top" secondItem="DcA-BY-wXc" secondAttribute="top" constant="10" id="s9x-Hg-g9t"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1h6-55-W9U" userLabel="Username Area">
+                                                <rect key="frame" x="56.5" y="224" width="262.5" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choose username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iU5-AB-mKn" userLabel="Username Field" customClass="PaddingTextField" customModule="Outquiz" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="26m-ZB-eqp" userLabel="Username Submit" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                                        <rect key="frame" x="212.5" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="IuU-cd-DwA"/>
+                                                            <constraint firstAttribute="height" constant="50" id="L5F-Ud-SU5"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                        <state key="normal" image="arrow_right"/>
+                                                        <connections>
+                                                            <action selector="usernameSubmitTap:" destination="IsU-z4-Ovm" eventType="touchUpInside" id="puw-oX-YDY"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="26m-ZB-eqp" firstAttribute="top" secondItem="1h6-55-W9U" secondAttribute="top" id="8td-9W-i1m"/>
+                                                    <constraint firstItem="iU5-AB-mKn" firstAttribute="leading" secondItem="1h6-55-W9U" secondAttribute="leading" id="ByR-JT-iek"/>
+                                                    <constraint firstItem="iU5-AB-mKn" firstAttribute="top" secondItem="1h6-55-W9U" secondAttribute="top" id="HZE-pr-4XA"/>
+                                                    <constraint firstAttribute="trailing" secondItem="26m-ZB-eqp" secondAttribute="trailing" id="WY2-cf-m4L"/>
+                                                    <constraint firstAttribute="bottom" secondItem="iU5-AB-mKn" secondAttribute="bottom" id="iKG-xG-NRm"/>
+                                                    <constraint firstAttribute="height" constant="50" id="wyW-kw-woO"/>
+                                                    <constraint firstAttribute="trailing" secondItem="iU5-AB-mKn" secondAttribute="trailing" id="xja-GT-ahK"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="APPLY REFERRAL CODE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cmj-de-25c">
+                                                <rect key="frame" x="56.5" y="306" width="262.5" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="Kik-JL-V8K"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EWD-PK-Bu8" userLabel="Referral Code Area">
+                                                <rect key="frame" x="56.5" y="343" width="262.5" height="50"/>
+                                                <subviews>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Referral code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dpX-nI-eyZ" userLabel="Code Field" customClass="PaddingTextField" customModule="Outquiz" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="262.5" height="50"/>
+                                                        <nil key="textColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mIV-ox-gUp" userLabel="Code Submit" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                                        <rect key="frame" x="212.5" y="0.0" width="50" height="50"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="50" id="5rT-KP-BGf"/>
+                                                            <constraint firstAttribute="height" constant="50" id="gkN-T1-771"/>
+                                                        </constraints>
+                                                        <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                        <state key="normal" image="arrow_right"/>
+                                                        <connections>
+                                                            <action selector="referralCodeSubmitTap:" destination="IsU-z4-Ovm" eventType="touchUpInside" id="u4O-Bz-K0f"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="dpX-nI-eyZ" firstAttribute="leading" secondItem="EWD-PK-Bu8" secondAttribute="leading" id="5id-bh-tdR"/>
+                                                    <constraint firstAttribute="height" constant="50" id="Lub-u4-1Kz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dpX-nI-eyZ" secondAttribute="trailing" id="PPF-l7-F6L"/>
+                                                    <constraint firstAttribute="trailing" secondItem="mIV-ox-gUp" secondAttribute="trailing" id="U6K-Gy-Xhm"/>
+                                                    <constraint firstItem="mIV-ox-gUp" firstAttribute="top" secondItem="EWD-PK-Bu8" secondAttribute="top" id="dOe-m4-Fc3"/>
+                                                    <constraint firstItem="dpX-nI-eyZ" firstAttribute="top" secondItem="EWD-PK-Bu8" secondAttribute="top" id="lU1-tB-VIe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="dpX-nI-eyZ" secondAttribute="bottom" id="qcG-Xm-uQ6"/>
+                                                </constraints>
+                                            </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iET-KR-DaZ" userLabel="Invite Button" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                                <rect key="frame" x="56.5" y="425" width="262.5" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Bum-p5-19O"/>
+                                                </constraints>
+                                                <state key="normal" title="Invite">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="inviteButtonTap:" destination="IsU-z4-Ovm" eventType="touchUpInside" id="e0a-y4-pPd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivL-Gv-EAw" userLabel="Suggest Button" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                                <rect key="frame" x="56.5" y="491" width="262.5" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="dhC-0Z-Sya"/>
+                                                </constraints>
+                                                <state key="normal" title="Suggest Trivia">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="suggestButtonTap:" destination="IsU-z4-Ovm" eventType="touchUpInside" id="aCq-ja-4WQ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xM7-fR-VtV" userLabel="Logout Button" customClass="RoundedButton" customModule="Outquiz" customModuleProvider="target">
+                                                <rect key="frame" x="56.5" y="557" width="262.5" height="50"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="bAh-an-01t"/>
+                                                </constraints>
+                                                <state key="normal" title="Logout">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="logoutButtonTap:" destination="IsU-z4-Ovm" eventType="touchUpInside" id="ZMj-k9-ugg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cmj-de-25c" firstAttribute="width" secondItem="1h6-55-W9U" secondAttribute="width" id="85F-JW-erF"/>
+                                            <constraint firstItem="ivL-Gv-EAw" firstAttribute="leading" secondItem="iET-KR-DaZ" secondAttribute="leading" id="E8L-iK-Siw"/>
+                                            <constraint firstItem="DcA-BY-wXc" firstAttribute="centerX" secondItem="iAd-SW-n4g" secondAttribute="centerX" id="Nuh-mZ-XGC"/>
+                                            <constraint firstItem="cmj-de-25c" firstAttribute="leading" secondItem="1h6-55-W9U" secondAttribute="leading" id="OPX-ml-UPe"/>
+                                            <constraint firstItem="EWD-PK-Bu8" firstAttribute="width" secondItem="cmj-de-25c" secondAttribute="width" id="QDv-S0-pNq"/>
+                                            <constraint firstItem="EWD-PK-Bu8" firstAttribute="top" secondItem="cmj-de-25c" secondAttribute="bottom" constant="16" id="Ql3-5X-0G9"/>
+                                            <constraint firstItem="iET-KR-DaZ" firstAttribute="width" secondItem="EWD-PK-Bu8" secondAttribute="width" id="Rrk-YM-oUX"/>
+                                            <constraint firstItem="EWD-PK-Bu8" firstAttribute="leading" secondItem="cmj-de-25c" secondAttribute="leading" id="c9U-ju-mCU"/>
+                                            <constraint firstAttribute="bottom" secondItem="xM7-fR-VtV" secondAttribute="bottom" constant="32" id="gFg-DA-eY1"/>
+                                            <constraint firstItem="ivL-Gv-EAw" firstAttribute="top" secondItem="iET-KR-DaZ" secondAttribute="bottom" constant="16" id="gV8-Ji-GeJ"/>
+                                            <constraint firstItem="1h6-55-W9U" firstAttribute="width" secondItem="iAd-SW-n4g" secondAttribute="width" multiplier="0.7" id="hKc-v8-EXn"/>
+                                            <constraint firstItem="1h6-55-W9U" firstAttribute="top" secondItem="DcA-BY-wXc" secondAttribute="bottom" constant="32" id="jHb-FH-bMR"/>
+                                            <constraint firstItem="1h6-55-W9U" firstAttribute="centerX" secondItem="iAd-SW-n4g" secondAttribute="centerX" id="jnS-HY-Lcp"/>
+                                            <constraint firstItem="xM7-fR-VtV" firstAttribute="leading" secondItem="ivL-Gv-EAw" secondAttribute="leading" id="jzv-GC-Lqy"/>
+                                            <constraint firstItem="xM7-fR-VtV" firstAttribute="top" secondItem="ivL-Gv-EAw" secondAttribute="bottom" constant="16" id="lzL-7N-WNF"/>
+                                            <constraint firstItem="xM7-fR-VtV" firstAttribute="width" secondItem="ivL-Gv-EAw" secondAttribute="width" id="mHi-ar-NiQ"/>
+                                            <constraint firstItem="ivL-Gv-EAw" firstAttribute="width" secondItem="iET-KR-DaZ" secondAttribute="width" id="nR6-vd-nKS"/>
+                                            <constraint firstItem="cmj-de-25c" firstAttribute="top" secondItem="1h6-55-W9U" secondAttribute="bottom" constant="32" id="vD0-yL-GFP"/>
+                                            <constraint firstItem="iET-KR-DaZ" firstAttribute="leading" secondItem="EWD-PK-Bu8" secondAttribute="leading" id="va8-6c-8i2"/>
+                                            <constraint firstItem="iET-KR-DaZ" firstAttribute="top" secondItem="EWD-PK-Bu8" secondAttribute="bottom" constant="32" id="veI-jx-L1k"/>
+                                            <constraint firstItem="DcA-BY-wXc" firstAttribute="top" secondItem="iAd-SW-n4g" secondAttribute="top" constant="32" id="yRN-S8-hEv"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="iAd-SW-n4g" firstAttribute="width" secondItem="awy-Dp-4aw" secondAttribute="width" id="FIw-RF-2Hx"/>
+                                    <constraint firstItem="iAd-SW-n4g" firstAttribute="top" secondItem="awy-Dp-4aw" secondAttribute="top" id="V4g-nL-74M"/>
+                                    <constraint firstAttribute="trailing" secondItem="iAd-SW-n4g" secondAttribute="trailing" id="dkC-O9-DxS"/>
+                                    <constraint firstItem="iAd-SW-n4g" firstAttribute="leading" secondItem="awy-Dp-4aw" secondAttribute="leading" id="mue-R0-RL7"/>
+                                    <constraint firstAttribute="bottom" secondItem="iAd-SW-n4g" secondAttribute="bottom" id="w2S-PT-Aq0"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="awy-Dp-4aw" firstAttribute="leading" secondItem="s9I-k6-O8e" secondAttribute="leading" id="Ck0-Qr-ANR"/>
+                            <constraint firstAttribute="bottom" secondItem="awy-Dp-4aw" secondAttribute="bottom" id="oot-Q1-uKQ"/>
+                            <constraint firstItem="awy-Dp-4aw" firstAttribute="top" secondItem="s9I-k6-O8e" secondAttribute="top" id="wDc-hb-Sw3"/>
+                            <constraint firstAttribute="trailing" secondItem="awy-Dp-4aw" secondAttribute="trailing" id="zpp-De-VWK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="5wI-hD-FrL"/>
+                    </view>
+                    <connections>
+                        <outlet property="avatarImageView" destination="lzp-5D-giz" id="apE-Sy-89K"/>
+                        <outlet property="inviteButton" destination="iET-KR-DaZ" id="rSd-4K-Gc4"/>
+                        <outlet property="logoutButton" destination="xM7-fR-VtV" id="s3c-aH-sBt"/>
+                        <outlet property="referralCodeField" destination="dpX-nI-eyZ" id="QqD-UC-ScM"/>
+                        <outlet property="referralCodeLabel" destination="cmj-de-25c" id="Szz-CT-AD7"/>
+                        <outlet property="referralCodeSubmit" destination="mIV-ox-gUp" id="6tT-SE-fZo"/>
+                        <outlet property="suggestButton" destination="ivL-Gv-EAw" id="JQQ-bk-CZV"/>
+                        <outlet property="usernameField" destination="iU5-AB-mKn" id="45Y-ZK-Qpn"/>
+                        <outlet property="usernameSubmit" destination="26m-ZB-eqp" id="HQT-sV-ubT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yli-eo-QYR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="169" y="133"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="arrow_right" width="64" height="64"/>
+        <image name="edit" width="64" height="64"/>
+    </resources>
+</document>

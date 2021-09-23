@@ -1,0 +1,11 @@
+framework module MuviAudioPlayer {
+  umbrella header "MuviAudioPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module MuviAudioPlayer.Swift {
+    header "MuviAudioPlayer-Swift.h"
+    requires objc
+}
